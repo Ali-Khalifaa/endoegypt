@@ -2,16 +2,16 @@
     <div class="header-element country-selector">
         <!-- Start::header-link|dropdown-toggle -->
         <a href="javascript:void(0);" class="header-link dropdown-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown">
-            <img :src="`/assets/images/flags/sau_Flag.jpg`" alt="img" class="rounded-circle header-link-icon">
+            <img :src="`/assets/images/flags/us_flag.jpg`" alt="img" class="rounded-circle header-link-icon">
         </a>
         <!-- End::header-link|dropdown-toggle -->
         <ul class="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
             <li>
                 <a class="dropdown-item d-flex align-items-center" id="switcher-rtl" href="javascript:void(0);">
                     <span class="avatar avatar-xs lh-1 me-2">
-                        <img src="/assets/images/flags/sau_Flag.jpg" alt="img" >
+                        <img src="/assets/images/flags/us_flag.jpg" alt="img" >
                     </span>
-                    {{$t('global.arabic')}}
+                    English
                 </a>
             </li>
         </ul>
@@ -27,7 +27,7 @@ export default {
     },
     data() {
         return {
-            locales: ['ar']
+            locales: ['en','ar'],
         }
     }
 }

@@ -34,13 +34,6 @@ return new class extends Migration
             $table->string('preferred_hotel')->nullable();
             $table->string('password');
             $table->string('email')->unique();
-            $table->foreignIdFor(Club::class, 'club_id')->nullable();
-            $table->foreignIdFor(AgeCategory::class, 'age_category_id')->nullable();
-            // $table->foreignIdFor(OutfitColor::class, 'outfit_color_id');
-            $table->foreignIdFor(Country::class, 'country_id');
-            $table->foreignIdFor(Area::class, 'area_id')->nullable();
-            $table->foreignIdFor(Category::class, 'category_id')->nullable();
-            $table->foreignIdFor(learnAbout::class, 'learn_about_id');
             $table->boolean('status')->default(true);
             $table->boolean('is_approved')->nullable();
             $table->integer('number_of_persons')->nullable();

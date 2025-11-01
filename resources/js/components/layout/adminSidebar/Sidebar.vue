@@ -60,103 +60,12 @@
                         </ul>
                     </li>
                     <!-- End::permissions -->
-                    <li class="slide" v-if="permission.includes('user read')">
-                        <router-link :to="{name:'user'}" class="side-menu__item">
-                            <i class="bx bx-user side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.users')}}</span>
-                        </router-link>
-                    </li>
-
-                    <li class="slide" v-if="permission.includes('club team read')">
-                        <router-link :to="{name:'clubTeam'}" class="side-menu__item">
-                            <i class="bx bx-group side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.clubTeam')}}</span>
-                        </router-link>
-                    </li>
-
-
-                    <li class="slide" v-if="permission.includes('champion award read')">
-                        <router-link :to="{name:'championAward'}" class="side-menu__item">
-                            <i class="bx bx-football side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.championAwards')}}</span>
-                        </router-link>
-                    </li>
-                    <li class="slide" v-if="permission.includes('club match read')">
-                        <router-link :to="{name:'clubMatch'}" class="side-menu__item">
-                            <i class="bx bx-football side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.clubMatch')}}</span>
-                        </router-link>
-                    </li>
-
-                    <li class="slide" v-if="permission.includes('result read')">
-                        <router-link :to="{name:'result'}" class="side-menu__item">
-                            <i class="bx bx-chart side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.result')}}</span>
-                        </router-link>
-                    </li>
-
-                    <li class="slide" v-if="permission.includes('category read')">
-                        <router-link :to="{name:'category'}" class="side-menu__item">
-                            <i class="bx bxs-category side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.categories')}}</span>
-                        </router-link>
-                    </li>
-
-                    <li class="slide" v-if="permission.includes('age category read')">
-                        <router-link :to="{name:'ageCategory'}" class="side-menu__item">
-                            <i class="bx bx-calendar side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.ageCategory')}}</span>
-                        </router-link>
-                    </li>
-
-                    <li class="slide" v-show="permission.includes('area read')">
-                        <router-link :to="{name:'area'}" class="side-menu__item">
-                            <i class="bx bx-map side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.areas')}}</span>
-                        </router-link>
-                    </li>
-
-                    <li class="slide" v-show="permission.includes('country read')">
-                        <router-link :to="{name:'country'}" class="side-menu__item">
-                            <i class="bx bx-globe side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.countries')}}</span>
-                        </router-link>
-                    </li>
 
                     <li class="slide" v-show="permission.includes('banner read')">
                         <router-link :to="{name:'banner'}" class="side-menu__item">
                             <i class="bx bx-image side-menu__icon"></i>
                             <span class="side-menu__label">{{$t('global.banners')}}</span>
                         </router-link>
-                    </li>
-
-                    <li class="slide has-sub" v-show="(permission.includes('team gallery read') || permission.includes('championship gallery read') || permission.includes('player read') )"
-                    :class="[$route.name == 'teamGallery' || $route.name == 'championshipGallery' || $route.name == 'playerGallery'  ? 'active open': '']"
-                    >
-                        <a href="javascript:void(0);" class="side-menu__item"
-                        :class="[$route.name == 'teamGallery' || $route.name == 'championshipGallery' || $route.name == 'playerGallery'   ? 'active': '']"
-                        >
-                            <i class="bx bx-images side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.Galleries')}}</span>
-                            <i class="fe fe-chevron-right side-menu__angle"></i>
-                        </a>
-                        <ul class="slide-menu child1"
-                        >
-                            <li class="slide side-menu__label1">
-                                <a href="javascript:void(0)">{{$t('global.Galleries')}}</a>
-                            </li>
-                            <li class="slide" v-if="permission.includes('team gallery read')">
-                                <router-link :to="{name:'teamGallery'}" class="side-menu__item">{{$t('global.teamGallery')}}</router-link>
-                            </li>
-                            <li class="slide" v-if="permission.includes('championship gallery read')">
-                                <router-link :to="{name:'championshipGallery'}" class="side-menu__item">{{$t('global.championshipGallery')}}</router-link>
-                            </li>
-
-                            <li class="slide" v-if="permission.includes('player read')">
-                                <router-link :to="{name:'playerGallery'}" class="side-menu__item">{{$t('global.players')}}</router-link>
-                            </li>
-
-                        </ul>
                     </li>
 
                     <li class="slide" v-show="permission.includes('testimonial read')">
@@ -166,47 +75,8 @@
                         </router-link>
                     </li>
 
-                    <li class="slide" v-show="permission.includes('popup ad read')">
-                        <router-link :to="{name:'popupAd'}" class="side-menu__item">
-                            <i class="bx bx-image side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.popup ad')}}</span>
-                        </router-link>
-                    </li>
 
-                    <li class="slide" v-show="permission.includes('color read')">
-                        <router-link :to="{name:'color'}" class="side-menu__item">
-                            <i class="bx bx-palette side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.colors')}}</span>
-                        </router-link>
-                    </li>
 
-                    <li class="slide" v-show="permission.includes('outfit color read')">
-                        <router-link :to="{name:'outfitColor'}" class="side-menu__item">
-                            <i class="bx bxs-t-shirt side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.outfitColor')}}</span>
-                        </router-link>
-                    </li>
-
-                    <li class="slide" v-show="permission.includes('learn about read')">
-                        <router-link :to="{name:'learnAbout'}" class="side-menu__item">
-                            <i class="bx bx-book side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.learnAbout')}}</span>
-                        </router-link>
-                    </li>
-
-                    <li class="slide" v-show="permission.includes('latest video read')">
-                        <router-link :to="{name:'latestVideo'}" class="side-menu__item">
-                            <i class="bx bx-video side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.latestVideos')}}</span>
-                        </router-link>
-                    </li>
-
-                    <li class="slide" v-show="permission.includes('brand read')">
-                        <router-link :to="{name:'brand'}" class="side-menu__item">
-                            <i class="bx bx-tag side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.brand')}}</span>
-                        </router-link>
-                    </li>
 
                     <li class="slide" v-show="permission.includes('news read')">
                         <router-link :to="{name:'news'}" class="side-menu__item">
@@ -215,38 +85,6 @@
                         </router-link>
                     </li>
 
-                    <!-- Start::permissions -->
-                    <li class="slide has-sub" v-show="(permission.includes('tournament information read') || permission.includes('tournament regulation read') || permission.includes('general condition read') || permission.includes('child safety policy read'))"
-                        :class="[$route.name == 'tournamentInformation' || $route.name == 'tournamentRegulation' || $route.name == 'generalCondition' || $route.name == 'childSafetyPolicy' ? 'active open': '']"
-                    >
-                        <a href="javascript:void(0);" class="side-menu__item"
-                        :class="[$route.name == 'tournamentInformation' || $route.name == 'tournamentRegulation' || $route.name == 'generalCondition' || $route.name == 'childSafetyPolicy' ? 'active': '']"
-                        >
-                            <i class="bx bx-file side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.termsAndConditions')}}</span>
-                            <i class="fe fe-chevron-right side-menu__angle"></i>
-                        </a>
-                        <ul class="slide-menu child1"
-                        >
-                            <li class="slide side-menu__label1">
-                                <a href="javascript:void(0)">{{$t('global.termsAndConditions')}}</a>
-                            </li>
-                            <li class="slide" v-if="permission.includes('tournament information read')">
-                                <router-link :to="{name:'tournamentInformation'}" class="side-menu__item">{{$t('global.tournamentInformation')}}</router-link>
-                            </li>
-                            <li class="slide" v-if="permission.includes('tournament regulation read')">
-                                <router-link :to="{name:'tournamentRegulation'}" class="side-menu__item">{{$t('global.tournamentRegulation')}}</router-link>
-                            </li>
-                            <li class="slide" v-if="permission.includes('general condition read')">
-                                <router-link :to="{name:'generalCondition'}" class="side-menu__item">{{$t('global.generalCondition')}}</router-link>
-                            </li>
-                            <li class="slide" v-if="permission.includes('child safety policy read')">
-                                <router-link :to="{name:'childSafetyPolicy'}" class="side-menu__item">{{$t('global.childSafetyPolicy')}}</router-link>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <!-- End::permissions -->
 
                     <!-- <li class="slide" v-show="permission.includes('frequently asked question read')">
                         <router-link :to="{name:'frequentlyAskedQuestion'}" class="side-menu__item">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light" data-menu-styles="dark" data-toggled="close">
+<html lang="en" dir="ltr" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light" data-menu-styles="dark" data-toggled="close">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,7 @@
         <title>{{env("APP_NAME")}} | Admin</title>
 
         <!-- Favicon -->
-        <link rel="icon" href="{{asset('assets/images/brand-logos/favicon.svg')}}" type="image/x-icon">
+        <link rel="icon" href="{{asset('assets/images/brand-logos/desktop-dark.ong')}}" type="image/x-icon">
 
         <!-- Choices JS -->
         <script src="{{asset('assets/libs/choices.js/public/assets/scripts/choices.min.js')}}"></script>

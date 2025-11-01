@@ -7,7 +7,7 @@
                 <nav>
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><router-link :to="{name: 'dashboard'}">{{$t('global.home')}}</router-link></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ $t('global.mission') }}</li>
+                        <!-- <li class="breadcrumb-item active" aria-current="page">{{ $t('global.mission') }}</li> -->
                     </ol>
                 </nav>
             </div>

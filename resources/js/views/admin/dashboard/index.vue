@@ -5,7 +5,7 @@
         <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
             <div>
                 <p class="fw-semibold fs-18 mb-0">{{$t('global.WelcomeBack')}}, {{$store.state.authAdmin.user?.name}} !</p>
-                <span class="fs-semibold text-muted">{{$t('global.HereAreSomeStatisticsAboutThePassengerTransportationService')}}</span>
+                <!-- <span class="fs-semibold text-muted">{{$t('global.HereAreSomeStatisticsAboutThePassengerTransportationService')}}</span> -->
             </div>
             <!-- <div class="btn-list mt-md-0 mt-2">
                 <button type="button" class="btn btn-primary btn-wave">

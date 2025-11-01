@@ -6,7 +6,7 @@
                     <h6 class="modal-title" id="adminModalLabel">
                         {{ type == 'create' ? $t('global.add') : $t('global.update') }}
                     </h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"  style="margin:unset;"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">

@@ -44,10 +44,9 @@
                             <div class="text-fixed-white text-center p-5 d-flex align-items-center justify-content-center">
                                 <div>
                                     <div class="mb-5">
-                                        <img src="/assets/images/authentication/logo.png" class="authentication-image" alt="">
+                                        <img src="/assets/images/authentication/logo.png" class="authentication-image" alt="" style="width:100%;height: unset;">
                                     </div>
                                     <h6 class="fw-semibold text-fixed-white">{{$t('auth.signIn')}}</h6>
-                                    <p class="fw-normal fs-14 op-7">نوصلك لين المكان اللى تبيه</p>
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,7 @@
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><router-link
                                 :to="{ name: 'dashboard' }">{{ $t('global.home') }}</router-link></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ $t('global.profile') }}</li>
+                        <!-- <li class="breadcrumb-item active" aria-current="page">{{ $t('global.profile') }}</li> -->
                     </ol>
                 </nav>
             </div>

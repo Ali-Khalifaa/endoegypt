@@ -10,8 +10,8 @@ const adminApi = axios.create({
 
 adminApi.interceptors.request.use(
     function (config) {
-        config.headers['lang'] = 'ar';
-        config.headers['Accept-Language'] = 'ar';
+        config.headers['lang'] = 'en';
+        config.headers['Accept-Language'] = 'en';
         config.headers['Authorization'] = "Bearer " + (Cookies.get("token") || '');
         return config;
     },
@@ -20,8 +20,8 @@ adminApi.interceptors.request.use(
     }
 );
 adminApi.defaults.headers.common['Accept'] = 'application/json';
-adminApi.defaults.headers.common['lang'] = 'ar';
-adminApi.defaults.headers.common['Accept-Language'] = 'ar';
+adminApi.defaults.headers.common['lang'] = 'en';
+adminApi.defaults.headers.common['Accept-Language'] = 'en';
 
 adminApi.interceptors.response.use(function (response) {
     return response;
