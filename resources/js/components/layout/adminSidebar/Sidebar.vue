@@ -143,7 +143,7 @@
                             <li class="slide" v-if="permission.includes('about us read')">
                                 <router-link :to="{name:'aboutUs'}" class="side-menu__item">{{$t('global.aboutUs')}}</router-link>
                             </li>
-                            <li class="slide" v-if="permission.includes('tournament regulation read')">
+                            <!-- <li class="slide" v-if="permission.includes('tournament regulation read')">
                                 <router-link :to="{name:'aboutChampion'}" class="side-menu__item">{{$t('global.aboutChampion')}}</router-link>
                             </li>
                             <li class="slide" v-if="permission.includes('history read')">
@@ -154,7 +154,7 @@
                             </li>
                             <li class="slide" v-if="permission.includes('mission read')">
                                 <router-link :to="{name:'mission'}" class="side-menu__item">{{$t('global.mission')}}</router-link>
-                            </li>
+                            </li> -->
 
                         </ul>
                     </li>
