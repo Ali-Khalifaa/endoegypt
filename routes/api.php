@@ -21,7 +21,7 @@ use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\SendNotificationController;
 use App\Http\Controllers\Dashboard\SettingController;
-use App\Http\Controllers\Dashboard\TestimonialController;
+use App\Http\Controllers\Dashboard\OrganizingCommitteeController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VisionController;
 use App\Http\Controllers\Web\HomePageController;
@@ -92,8 +92,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [ChangeLang::class]], fun
         // JoinUs
         Route::apiResource('join-us', JoinUsController::class);
 
-        // testimonial
-        Route::apiResource('testimonial', TestimonialController::class);
+        // OrganizingCommittee
+        Route::apiResource('organizing-committee', OrganizingCommitteeController::class);
 
         // news
         Route::apiResource('news', NewsController::class);

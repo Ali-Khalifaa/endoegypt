@@ -15,10 +15,10 @@ class BannerResource extends JsonResource
             "title"       => $this->current_translation?->title,
             "description" => $this->current_translation?->description,
             "image" => $this->image.'',
-            "position" => $this->position,
+            "is_image" => $this->is_image,
             "status" => $this->status,
-            "date" => Carbon::createFromFormat('Y-m-d H:i:s', $this->date)->format('Y-m-d  (H:i)'),
-            "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('Y-m-d  (H:i)'),
+            "date" => $this->date ? Carbon::createFromFormat('Y-m-d H:i:s', $this->date)->format('Y-m-d  (H:i)') : '',
+            "created_at" => $this->created_at ? Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('Y-m-d  (H:i)') : '',
         ];
     }
 }

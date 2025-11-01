@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VisionSeeder::class);
         $this->call(MissionSeeder::class);
         $this->call(AboutChampionSeeder::class);
+        $this->call(BannerSeeder::class);
+        $this->call(OrganizingCommitteeSeeder::class);
     }
 }

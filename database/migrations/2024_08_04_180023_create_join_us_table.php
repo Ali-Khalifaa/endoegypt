@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('twitter')->default('#');
             $table->string('instagram')->default('#');
             $table->string('linkedin')->default('#');
-            $table->string('youtube')->default('#');
             $table->timestamps();
         });
 

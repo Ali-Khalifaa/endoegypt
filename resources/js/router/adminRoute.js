@@ -13,7 +13,7 @@ import joinUs from "./adminRoute/joinUs.js";
 import language from "./adminRoute/language.js";
 import backup from "./adminRoute/backup.js";
 import frequentlyAskedQuestion from "./adminRoute/frequentlyAskedQuestion.js";
-import testimonial from "./adminRoute/testimonial.js";
+import organizingCommittee from "./adminRoute/organizingCommittee.js";
 import news from "./adminRoute/news.js";
 import contactUs from "./adminRoute/contactUs.js";
 import contactMessage from "./adminRoute/contactMessage.js";
@@ -62,8 +62,7 @@ const routes = [
             ...language,
             ...backup,
             ...frequentlyAskedQuestion,
-
-            ...testimonial,
+            ...organizingCommittee,
             ...news,
             ...contactUs,
             ...contactMessage,
