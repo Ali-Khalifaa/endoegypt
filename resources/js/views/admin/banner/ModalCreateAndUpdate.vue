@@ -11,6 +11,38 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="custom-toggle-switch d-flex align-items-center my-4 ">
+                                <input id="toggleswitchPrimary" v-model="data.is_image" type="checkbox">
+                                <label for="toggleswitchPrimary" class="label-primary"></label><span class="ml-3">Is it a picture? </span>
+                            </div>
+                            <template v-if="errors['is_image']">
+                                <error-message v-for="(errorMessage, index) in errors['is_image']" :key="index">
+                                    {{ errorMessage }}
+                                </error-message>
+                            </template>
+                        </div>
+
+                         <div class="col-md-6" v-if="data.is_image">
+                            <label class="form-label">{{$t('global.date')}}</label>
+                            <div class="input-group">
+                                <div class="input-group-text text-muted"> <i class="ri-calendar-line"></i> </div>
+                                <input type="text" class="form-control" id="datetime" :placeholder="$t('global.date')"
+                                       v-model.trim="v$.date.$model"
+                                       :class="{'is-invalid': v$.date.$error ||errors[`date`],
+                                        'is-valid':!v$.date.$invalid && !errors[`date`]}">
+                            </div>
+                            <div class="invalid-feedback">
+                            </div>
+                            <template v-if="errors['date']">
+                                <error-message v-for="(errorMessage, index) in errors['date']" :key="index">
+                                    {{ errorMessage }}
+                                </error-message>
+                            </template>
+                        </div>
+
+                    </div>
+                    <div class="row" v-if="data.is_image">
                         <div class="col-md-6" v-if="data.ar" v-for="lang in languages">
                             <label class="form-label">{{ $t('label.title_one') }} ({{lang.title}})</label>
                             <input type="text" class="form-control"  v-model="v$[lang.code].title.$model"
@@ -19,7 +51,6 @@
                                    'is-valid': !v$[lang.code].title.$invalid && !errors[`translations.${lang.code}.title`]}">
 
                             <div class="invalid-feedback">
-                                <span v-if="v$[lang.code].title.required.$invalid">{{ $t('validation.fieldRequired') }}<br /> </span>
                                 <span v-if="v$[lang.code].title.minLength.$invalid">{{ $t('validation.TitleIsMustHaveAtLeast') }} {{
                                         v$[lang.code].title.minLength.$params.min
                                     }} {{ $t('validation.Letters') }} <br />
@@ -40,7 +71,6 @@
                             'is-valid': !v$[lang.code].description.$invalid && !errors[`translations.${lang.code}.description`]}">
 
                             <div class="invalid-feedback">
-                                <span v-if="v$[lang.code].description.required.$invalid">{{ $t('validation.fieldRequired') }}<br /> </span>
                             </div>
                             <template v-if="errors[`translations.${lang.code}.description`]">
                                 <error-message v-for="(errorMessage, index) in errors[`translations.${lang.code}.description`]" :key="index">
@@ -48,38 +78,6 @@
                                 </error-message>
                             </template>
                         </div>
-
-                        <div class="col-md-6 mt-3">
-                            <label class="form-label">{{$t('global.date')}}</label>
-                            <div class="input-group">
-                                <div class="input-group-text text-muted"> <i class="ri-calendar-line"></i> </div>
-                                <input type="text" class="form-control" id="datetime" :placeholder="$t('global.date')"
-                                       v-model.trim="v$.date.$model"
-                                       :class="{'is-invalid': v$.date.$error ||errors[`date`],
-                                        'is-valid':!v$.date.$invalid && !errors[`date`]}">
-                            </div>
-                            <div class="invalid-feedback">
-                                <span v-if="v$.date.required.$invalid">{{ $t('validation.fieldRequired') }}<br /> </span>
-                            </div>
-                            <template v-if="errors['date']">
-                                <error-message v-for="(errorMessage, index) in errors['date']" :key="index">
-                                    {{ errorMessage }}
-                                </error-message>
-                            </template>
-                        </div>
-
-                        <!-- <div class="col-md-6 mt-2">
-                            <div class="custom-toggle-switch d-flex align-items-center my-4 ">
-                                <input id="toggleswitchPrimary" v-model="data.status" type="checkbox">
-                                <label for="toggleswitchPrimary" class="label-primary"></label><span class="ms-3">{{ $t('label.status') }}</span>
-                            </div>
-                            <template v-if="errors['status']">
-                                <error-message v-for="(errorMessage, index) in errors['status']" :key="index">
-                                    {{ errorMessage }}
-                                </error-message>
-                            </template>
-                        </div> -->
-
 
                         <div class="col-md-12 mt-3 row flex-fill">
                             <div class="btn btn-outline-light waves-effect"  style="width: 90%; height:90%">
@@ -119,7 +117,43 @@
                             </template>
                         </div>
 
+                    </div>
+                    <div class="row" v-else>
+                          <div class="col-md-12 mt-3 row flex-fill">
+                            <div class="btn btn-outline-light waves-effect"  style="width: 90%; height:90%">
 
+                                <span v-if="type != 'edit' && !numberOfImage"  style="margin-top:30%;">
+                                    Choose Video File
+                                    <br><i class="bi bi-cloud-upload fs-40" ></i>
+                                    <i class="fas fa-cloud-upload-alt ml-3" aria-hidden="true"></i>
+                                </span>
+
+                                <div id="container-images" v-show="image &&numberOfImage"></div>
+
+                                <div  v-if="type == 'edit'" v-show="!numberOfImage">
+                                    <figure>
+                                        <figcaption>
+                                            <img v-if="data.is_image" class="img-fluid rounded" :src="imageUpload">
+                                            <video v-else class="img-fluid rounded" controls autoplay>
+                                                <source :src="imageUpload" type="video/mp4">
+                                                {{ $t('global.YourBrowserDoesNotSupportVideo') || 'Your browser does not support the video tag.' }}
+                                            </video>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <input name="mediaPackage" type="file" @change="preview" id="mediaPackage" accept="video/*">
+                                    <template class="text-danger text-center" v-if="requiredn">
+                                        <error-message>{{$t('global.ImagesIsMustHaveAtLeast1Photos')}}<br /></error-message>
+                                    </template>
+                            </div>
+                            <p class="num-of-files">{{numberOfImage ? numberOfImage + $t('global.FilesSelected') : $t('global.NoFilesChosen') }}</p>
+
+                            <template v-if="errors[`image`]">
+                                <error-message v-for="(errorMessage, index) in errors[`image`]" :key="index">
+                                    {{ errorMessage }}
+                                </error-message>
+                            </template>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -188,13 +222,14 @@ export default {
         languages.value.forEach((el)=>{
                submitdata.data[el.code]={title:'',description:'',};
                langValidation.value[el.code] ={
-                   title: {minLength: minLength(1),required,},
-                   description: {required}
+                   title: {minLength: minLength(1),},
+                   description: {}
                }
            });
 
            submitdata.data.date = '';
            submitdata.data.status = true;
+           submitdata.data.is_image = true;
            imageUpload.value = '';
            is_disabled.value = false;
            image.value=null
@@ -218,6 +253,7 @@ export default {
                             }
                         });
                         submitdata.data.status = l.status==1;
+                        submitdata.data.is_image = l.is_image==1;
                         submitdata.data.date = l.date;
                         imageUpload.value = l.image
                     })
@@ -241,6 +277,7 @@ export default {
         let submitdata =  reactive({
             data:{
                 status: true,
+                is_image: true,
                 date: '',
             }
         });
@@ -300,7 +337,7 @@ export default {
             return {
                 ...langValidation.value,
                 date:{
-                    required
+
                 }
             }
         });
@@ -327,6 +364,7 @@ export default {
        })
         formData.append('date', this.data.date);
         formData.append('status', this.data.status ? 1 : 0);
+        formData.append('is_image', this.data.is_image ? 1 : 0);
         if (this.image) {
             formData.append('image', this.image);
         }

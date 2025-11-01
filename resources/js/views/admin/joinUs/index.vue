@@ -76,21 +76,7 @@
                             </error-message>
                         </template>
                     </div>
-                    <div class="col-md-12 mt-3">
-                        <label for="youtube" class="form-label">{{$t('global.youtube')}}</label>
-                        <input type="text" class="form-control" id="youtube" :placeholder="$t('global.youtube')"
-                            v-model.trim="v$.youtube.$model"
-                            :class="{'is-invalid': v$.youtube.$error ||errors[`youtube`],
-                            'is-valid':!v$.youtube.$invalid && !errors[`youtube`]}">
-                        <div class="invalid-feedback">
-                            <span v-if="v$.youtube.required.$invalid">{{ $t('validation.fieldRequired') }}<br /> </span>
-                        </div>
-                        <template v-if="errors['youtube']">
-                            <error-message v-for="(errorMessage, index) in errors['youtube']" :key="index">
-                                {{ errorMessage }}
-                            </error-message>
-                        </template>
-                    </div>
+                   
                     <div class="col-md-12 mt-3 mb-3 d-flex justify-content-end">
                         <button type="submit" v-if="!loading" @click.prevent="AddSubmit" class="btn btn-primary">{{ $t('global.Submit') }}</button>
                         <button class="btn btn-primary btn-loader" v-else>
@@ -129,7 +115,6 @@ export default {
            submitdata.data.twitter = '';
            submitdata.data.instagram = '';
            submitdata.data.linkedin = '';
-           submitdata.data.youtube = '';
 
            loading.value = false;
            errors.value = [];
@@ -145,7 +130,6 @@ export default {
                         submitdata.data.twitter = l.twitter;
                         submitdata.data.instagram = l.instagram;
                         submitdata.data.linkedin = l.linkedin;
-                        submitdata.data.youtube = l.youtube;
 
                     })
                     .catch((err) => {
@@ -169,7 +153,6 @@ export default {
                 twitter:'',
                 instagram:'',
                 linkedin:'',
-                youtube:'',
 
             }
         });
@@ -180,7 +163,6 @@ export default {
                 twitter: {required},
                 instagram: {required},
                 linkedin: {required},
-                youtube: {required},
 
 
             }
@@ -202,7 +184,6 @@ export default {
             formData.append('twitter', this.data.twitter);
             formData.append('instagram', this.data.instagram);
             formData.append('linkedin', this.data.linkedin);
-            formData.append('youtube', this.data.youtube);
 
             formData.append('_method','PUT');
         if(!this.v$.$error) {

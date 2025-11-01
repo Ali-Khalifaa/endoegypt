@@ -21,7 +21,6 @@ class JoinUsResource extends JsonResource
             'twitter'    => $this->twitter,
             'instagram'      => $this->instagram,
             'linkedin'      => $this->linkedin,
-            'youtube'      => $this->youtube,
         ];
     }
 }

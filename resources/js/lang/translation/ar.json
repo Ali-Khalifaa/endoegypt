@@ -1083,7 +1083,8 @@
         "Are you sure you want to accept":"هل انت متأكد من قبول طلب",
         "championship":"البطولة",
         "popup ad":"الاعلان المنبثق",
-        "players":"اللاعبين"
+        "players":"اللاعبين",
+        "OrganizingCommittee":"اللجنة المنظمة"
     },
     "role_and_permissions":{
         "Banners" : "السكشن المتحرك",
@@ -1111,24 +1112,6 @@
         "language edit" : "تعديل اللغات",
         "language delete" : "حذف اللغات",
 
-        "Categories" : "الفئات",
-        "category read" : "عرض الفئات",
-        "category create" : "اضافة الفئات",
-        "category edit" : "تعديل الفئات",
-        "category delete" : "حذف الفئات",
-
-        "Age Categories" : "الفئات العمرية",
-        "age category read" : "عرض الفئات العمرية",
-        "age category create" : "اضافة الفئات العمرية",
-        "age category edit" : "تعديل الفئات العمرية",
-        "age category delete" : "حذف الفئات العمرية",
-
-        "Countries" : "البلاد",
-        "country read" : "عرض البلاد",
-        "country create" : "اضافة البلاد",
-        "country edit" : "تعديل البلاد",
-        "country delete" : "حذف البلاد",
-
         "Frequently Asked Question":"الاسئلة الشائعة ",
         "frequently asked question read":"عرض الاسئلة الشائعة ",
         "frequently asked question create":"اضافة الاسئلة الشائعة ",
@@ -1139,79 +1122,15 @@
         "database backup create":"اضافة نسخه احتياطيه لقاعدة البيانات",
         "database backup read":"عرض النسخ الاحتياطيه لقاعدة البيانات",
 
-        "Colors":"الألوان",
-        "color read":"عرض الألوان",
-        "color create":"اضافة الألوان",
-        "color edit":"تعديل الألوان",
-        "color delete":"حذف الألوان",
-
         "Join Us": "انضم الينا",
         "join us read":"عرض انضم الينا",
         "join us edit":"تعديل انضم الينا",
-
-        "Areas":"المناطق",
-        "area read":"عرض المناطق",
-        "area create":"اضافة المناطق",
-        "area edit":"تعديل المناطق",
-        "area delete":"حذف المناطق",
-
-        "Outfit Colors":"الوان الزي",
-        "outfit color read":"عرض الوان الزي",
-        "outfit color create":"اضافة الوان الزي",
-        "outfit color edit":"تعديل الوان الزي",
-        "outfit color delete":"حذف الوان الزي",
-
-        "Learn About":"كيف تعرفت علينا",
-        "learn about read":"عرض كيف تعرفت علينا",
-        "learn about create":"اضافة كيف تعرفت علينا",
-        "learn about edit":"تعديل كيف تعرفت علينا",
-        "learn about delete":"حذف كيف تعرفت علينا",
-
-        "Terms and conditions":"الشروط والاحكام",
-        "tournament information read":"عرض معلومات عن البطولة",
-        "tournament information edit":"تعديل معلومات عن البطولة",
-        "tournament regulation read":"عرض لوائح البطولة",
-        "tournament regulation edit":"تعديل لوائح البطولة",
-        "general condition read":"عرض الشروط العامة",
-        "general condition edit":"تعديل الشروط العامة",
-        "child safety policy read":"عرض سياسة سلامة الطفل",
-        "child safety policy edit":"تعديل سياسة سلامة الطفل",
-
-        "Latest Videos":"احدث الفيديوهات",
-        "latest videos read":"عرض احدث الفيديوهات",
-        "latest videos create":"اضافة احدث الفيديوهات",
-        "latest videos edit":"تعديل احدث الفيديوهات",
-        "latest videos delete":"حذف احدث الفيديوهات",
-
-        "Galleries":"المعارض",
-        "team gallery read":"عرض معرض الفريق",
-        "team gallery create":"اضافة معرض الفريق",
-        "team gallery edit":"تعديل معرض الفريق",
-        "team gallery delete":"حذف معرض الفريق",
-        "championship gallery read":"عرض معرض البطولة",
-        "championship gallery create":"اضافة معرض البطولة",
-        "championship gallery edit":"تعديل معرض البطولة",
-        "championship gallery delete":"حذف معرض البطولة",
-        "champion award read":"عرض جوائز البطولة",
-        "champion award create":"اضافة جوائز البطولة",
-        "champion award edit":"تعديل جوائز البطولة",
-        "champion award delete":"حذف جوائز البطولة",
-        "player read":"عرض اللاعبين",
-        "player create":"اضافة اللاعبين",
-        "player edit":"تعديل اللاعبين",
-        "player delete":"حذف اللاعبين",
 
         "Testimonials":"اراء العملاء",
         "testimonial read":"عرض اراء العملاء",
         "testimonial create":"اضافة اراء العملاء",
         "testimonial edit":"تعديل اراء العملاء",
         "testimonial delete":"حذف اراء العملاء",
-
-        "Brand":"العلامة التجارية",
-        "brand read":"عرض العلامة التجارية",
-        "brand create":"اضافة العلامة التجارية",
-        "brand edit":"تعديل العلامة التجارية",
-        "brand delete":"حذف العلامة التجارية",
 
         "news":"الاخبار",
         "news read":"عرض الاخبار",
@@ -1239,31 +1158,11 @@
         "about champion read":"عرض عن البطولة",
         "about champion edit":"تعديل عن البطولة",
 
-        "Club Team":"فرق النادي",
-        "club team read":"عرض فرق النادي",
-        "club team create":"اضافة فرق النادي",
-        "club team edit":"تعديل فرق النادي",
-        "club team delete":"حذف فرق النادي",
-
-        "Club Match":"المباريات",
-        "club match read":"عرض المباريات",
-        "club match create":"اضافة المباريات",
-        "club match edit":"تعديل المباريات",
-        "club match delete":"حذف المباريات",
-
-        "Result":"النتيجة",
-        "result read":"عرض النتيجة",
-        "result create":"اضافة النتيجة",
-        "result edit":"تعديل النتيجة",
-        "result delete":"حذف النتيجة",
-
-        "User":"المستخدمين",
-        "user read":"عرض المستخدمين",
-        "user edit":"تعديل المستخدمين",
-
-        "Popup Ad":"الاعلان المنبثق",
-        "popup ad read":"عرض الاعلان المنبثق",
-        "popup ad edit":"تعديل الاعلان المنبثق"
+        "Organizing Committee":"اللجنة المنظمة",
+        "organizing committee read":"عرض اللجنة المنظمة",
+        "organizing committee create":"اضافة اللجنة المنظمة",
+        "organizing committee edit":"تعديل اللجنة المنظمة",
+        "organizing committee delete":"حذف اللجنة المنظمة"
 
     },
     "shirt_type": {

@@ -26,11 +26,14 @@ class BannerRequest extends FormRequest
     {
         return [
             "translations"         => "nullable|array",
-            "translations.*.title" => "required|string",
-            "translations.*.description" => "required|string",
-            "date" => "required",
-            "status" =>  "required|boolean",
-            'image' => $this->method() == 'PUT' ? 'nullable'.($this->hasFile('image')?'|file|mimes:jpeg,jpg,png,svg,webp':'') : 'required|file|mimes:png,svg,webp,jpg,jpeg' ,
+            "translations.*.title" => "nullable|string",
+            "translations.*.description" => "nullable|string",
+            "date" => "nullable",
+            "status" =>  "nullable|boolean",
+            "is_image" =>  "nullable|boolean",
+            'image' => $this->method() == 'PUT'
+                ? 'nullable'.($this->hasFile('image') ? '|file|mimes:jpeg,jpg,png,svg,webp,mp4,mov,avi,mpeg,webm' : '')
+                : 'required|file|mimes:png,svg,webp,jpg,jpeg,mp4,mov,avi,mpeg,webm',
         ];
     }
 }

@@ -27,7 +27,6 @@ class JoinUsRequest extends FormRequest
             'twitter' => 'required|string',
             'instagram' => 'required|string',
             'linkedin' => 'required|string',
-            'youtube' => 'required|string',
         ];
     }
 }

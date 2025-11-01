@@ -18,7 +18,6 @@ class JoinUsSeeder extends Seeder
             'twitter'=> '#',
             'instagram'=> '#',
             'linkedin'=> '#',
-            'youtube'=> '#',
             // 'phone'=> '166633',
         ]);
 

@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->dateTime('date');
+            $table->dateTime('date')->nullable();
             $table->boolean('status')->default(true);
+            $table->boolean('is_image')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });

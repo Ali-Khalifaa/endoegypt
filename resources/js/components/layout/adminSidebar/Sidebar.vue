@@ -68,10 +68,10 @@
                         </router-link>
                     </li>
 
-                    <li class="slide" v-show="permission.includes('testimonial read')">
-                        <router-link :to="{name:'testimonial'}" class="side-menu__item">
-                            <i class="bx bx-comment side-menu__icon"></i>
-                            <span class="side-menu__label">{{$t('global.testimonial')}}</span>
+                    <li class="slide" v-show="permission.includes('organizing committee read')">
+                        <router-link :to="{name:'organizingCommittee'}" class="side-menu__item">
+                            <i class="bx bx-image side-menu__icon"></i>
+                            <span class="side-menu__label">{{$t('global.OrganizingCommittee')}}</span>
                         </router-link>
                     </li>
 

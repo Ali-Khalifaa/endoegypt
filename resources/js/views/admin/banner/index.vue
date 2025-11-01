@@ -46,16 +46,24 @@
                                     <td scope="row">{{index + 1}}</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="me-3">
-                                                <span class="avatar  bg-light">
-                                                    <img :src='item.image' alt="" style="width: auto; height: 100%">
+                                            <div class="me-3" v-if="item.is_image && item.image">
+                                                <span class="avatar bg-light">
+                                                    <img :src="item.image" :alt="item.title || 'banner'" style="max-width:120px; max-height:80px; object-fit:cover;">
+                                                </span>
+                                            </div>
+                                            <div class="me-3" v-else>
+                                                <span class="avatar bg-light">
+                                                    <video :src="item.image" controls style="max-width:120px; max-height:80px; object-fit:cover;">
+                                                        {{ $t('global.videoNotSupported') || 'Your browser does not support the video tag.' }}
+                                                    </video>
                                                 </span>
                                             </div>
                                         </div>
+
                                     </td>
-                                    <td>{{item.title}}</td>
-                                    <td>{{item.description}}</td>
-                                    <td>{{item.date}}</td>
+                                    <td>{{item.is_image ? item.title : '---'}}</td>
+                                    <td>{{item.is_image ? item.description : '---'}}</td>
+                                    <td>{{item.is_image ? item.date : '---'}}</td>
                                     <td>
                                         <span class="badge rounded-pill bg-success-transparent" v-if="item.status">{{$t('global.activated')}}</span>
                                         <span class="badge rounded-pill bg-danger-transparent" v-else>{{$t('global.Inactive')}}</span>
