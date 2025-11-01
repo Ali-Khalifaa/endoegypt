@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="/website/images/fav.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/authentication/logo.png">
 
     @if (app()->getLocale() == 'ar')
-            <link rel="stylesheet" href="/website/StyleRTL.css">
+            <link rel="stylesheet" href="/website/css/StyleRTL.css">
         @else
-            <link rel="stylesheet" href="/website/allStyle.css">
+            <link rel="stylesheet" href="/website/css/allStyle.css">
     @endif
 
 

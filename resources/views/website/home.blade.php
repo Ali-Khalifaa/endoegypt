@@ -2,422 +2,431 @@
 @section('pageTitle', __('messages.HomePage'))
 @section('body')
 
-    <!-- Slider Section Start Here -->
-    <div class="slider-section4 slider-main" style="max-height: 700px">
-        <div id="slider-five" class="owl-carousel">
-
-            @foreach ($banners as $banner)
-                <div class="item active">
-                    <img src="{{ $banner->image }}" alt="Slider image" style="max-height: 700px">
-                    <div class="dsc">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="slider-text text-center">
-                                        <h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">
-                                            {{ $banner->current_translation?->title }}
-                                            @if ($banner->current_translation?->description)
-                                                <span>VS</span>{{ $banner->current_translation?->description }}
-                                            @endif
-                                        </h1>
-                                        <div data-animation-in="slideInLeft" data-animation-out="animate-out fadeOut"
-                                            class="CountDownTimer" data-date="{{ $banner->date }}"></div>
-                                        {{-- <div class="btn-slider">
-                                            <a href="#" class="btn1" data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown">Read More</a>
-                                            <a href="#" class="btn2" data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">Book a Ticket</a>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
 
 
-        </div>
-    </div>
-    <!-- Slider Section end Here -->
+    <!-- Theme Main Banner ____________________________ -->
+    <section>
+        <div id="theme-main-banner">
+            <div data-src="/website/images/home/banner-slider-1.jpg">
+                <div class="camera_caption">
+                    <div class="container text-center">
+                        <h1 class="wow fadeInUp animated" data-wow-delay="0.1s">Help Children Your Donation <br>Impacts Lives
+                        </h1>
+                        <h6 class="wow fadeInUp animated" data-wow-delay="0.4s">join today</h6>
+                        <a href="#" class="tran3s banner-button wow fadeInUp animated hvr-bounce-to-right"
+                            data-wow-delay="0.7s">Donation Now</a>
+                    </div> <!-- /.container -->
+                </div> <!-- /.camera_caption -->
+            </div>
+            <div data-src="/website/images/home/banner-slider-2.jpg">
+                <div class="camera_caption">
+                    <div class="container text-center">
+                        <h1 class="wow fadeInUp animated" data-wow-delay="0.1s">Help Children Your Donation <br>Impacts
+                            Lives</h1>
+                        <h6 class="wow fadeInUp animated" data-wow-delay="0.4s">join today</h6>
+                        <a href="#" class="tran3s banner-button wow fadeInUp animated hvr-bounce-to-right"
+                            data-wow-delay="0.7s">Donation Now</a>
+                    </div> <!-- /.container -->
+                </div> <!-- /.camera_caption -->
+            </div>
+            <div data-src="/website/images/home/banner-slider-1.jpg">
+                <div class="camera_caption">
+                    <div class="container text-center">
+                        <h1 class="wow fadeInUp animated" data-wow-delay="0.1s">Help Children Your Donation <br>Impacts
+                            Lives</h1>
+                        <h6 class="wow fadeInUp animated" data-wow-delay="0.4s">join today</h6>
+                        <a href="#" class="tran3s banner-button wow fadeInUp animated hvr-bounce-to-right"
+                            data-wow-delay="0.7s">Donation Now</a>
+                    </div> <!-- /.container -->
+                </div> <!-- /.camera_caption -->
+            </div>
+        </div> <!-- /#theme-main-banner -->
+    </section>
 
-    <div class="clicent-logo-section sec-spacer" style="background:none">
-        {{-- <div class="overly-bg"></div> --}}
+
+    <!-- Children Care List  _________________________________ -->
+    <section class="Children-Care-list-margin">
         <div class="container">
-            <h3 class="title-bg text-dark">@lang('messages.Clubs')</h3>
+            <div class="Children-Care-list">
+                <div id="Children-Care-List-Slider" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="text-center list-item">
+                            <i class="flaticon-handshake"></i>
+                            <h6><a href="#">Children’s Care</a></h6>
+                        </div> <!-- /.list-item -->
+                    </div> <!-- /.item -->
+                    <div class="item">
+                        <div class="text-center list-item">
+                            <i class="flaticon-donation-1"></i>
+                            <h6><a href="#">Donate</a></h6>
+                        </div> <!-- /.list-item -->
+                    </div> <!-- /.item -->
+                    <div class="item">
+                        <div class="text-center list-item">
+                            <i class="flaticon-donation"></i>
+                            <h6><a href="#">Volunteer</a></h6>
+                        </div> <!-- /.list-item -->
+                    </div> <!-- /.item -->
+                    <div class="item">
+                        <div class="text-center list-item">
+                            <i class="flaticon-donation-2"></i>
+                            <h6><a href="#">Protect Planet</a></h6>
+                        </div> <!-- /.list-item -->
+                    </div> <!-- /.item -->
+                </div> <!-- / #Children-Care-List-Slider -->
+            </div> <!-- /.Children-Care-list -->
+        </div> <!-- /.container -->
+    </section> <!-- /.Children-Care-list-margin -->
 
-            <div id="clubs" class="rs-carousel owl-carousel" data-loop="true" data-items="4" data-margin="20"
-                data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false"
-                data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false"
-                data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
-                data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="4" data-md-device-nav="false"
-                data-md-device-dots="false">
-                @foreach ($clubs as $club)
-                    <div class="item bg-dark">
-                        <div class="single-logo">
-                            <a href="javascript::void()">
-                                <img src="{{ $club->image }}" alt="club-image" style="width:150px">
-                                <h5 class="mt-4 text-white">{{ $club->current_translation->title }}</h5>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-
-    <!-- Upcoming Match Section Start Here-->
-    <div class="upcoming-section">
-        <div class="container">
-            <h2>@lang('messages.Upcoming Matchs')</h2>
-            <div id="upcoming" class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="30"
-                data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false"
-                data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false"
-                data-ipad-device="1" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1"
-                data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="false"
-                data-md-device-dots="false">
-                @foreach ($upcomingMatches as $match)
-                    <div class="item row">
-                        <div class="col-lg-4 col-md-4 col-sm-12 first">
-                            <img src="{{ $match->club1->image }}" alt="{{ $match->club1->current_translation?->title }}">
-                            <h4>{{ $match->club1->current_translation?->title }} ({{ $match->club1->abbreviation }})</h4>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <span class="date">{{ $match->match_date->format('Y-m-d H:i') }}</span>
-                            <span class="vs">VS</span>
-                            <span>{{ $match->current_translation?->title }}</span>
-                            <a href="{{ $match->match_link }}" style="color:#fbc02d" class="btn1 popup-youtube"
-                                data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown"
-                                target="_blank">@lang('messages.Channel Link')</a>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 last">
-                            <img src="{{ $match->club2->image }}" alt="{{ $match->club2->current_translation?->title }}">
-                            <h4>{{ $match->club2->current_translation?->title }} ({{ $match->club2->abbreviation }})</h4>
-                        </div>
-                    </div>
-                @endforeach
-
-            </div>
-        </div>
-    </div>
-    <!-- Upcoming Match Section end Here-->
-
-    <!-- All news area Start Here-->
-    <div class="all-news-area sec-spacer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h3 class="title-bg">@lang('messages.Latest News')</h3>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="latest-news-slider">
-                                @foreach ($latestNews as $latestNew)
-                                    <div>
-                                        <div class="news-normal-block">
-                                            <div class="news-img">
-                                                <a href="#">
-                                                    <img src="{{ $latestNew->image }}"
-                                                        alt="{{ $latestNew->current_translation?->title }}" />
-                                                </a>
-                                            </div>
-                                            <h4 class="news-title"><a
-                                                    href="blog-single.html">{{ $latestNew->current_translation?->title }}</a>
-                                            </h4>
-                                            <div class="news-desc">
-                                                <p>
-                                                    {{ $latestNew->current_translation?->description }}
-                                                </p>
-                                            </div>
-                                            <div class="news-btn">
-                                                <a class="primary-btn"
-                                                    href="/news-details/{{ $latestNew->id }}-{{ $latestNew->slug }}">@lang('messages.Read More')</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="latest-news-nav">
-                                @foreach ($latestNews as $latestNew)
-                                    <div><img src="{{ $latestNew->image }}"
-                                            alt="{{ $latestNew->current_translation?->title }}" /></div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="sidebar-area right-side-area">
-                        <h3 class="title-bg">@lang('messages.Recent Results')</h3>
-                        <div class="today-match-teams text-center"
-                            style="background: url(/upload/general/download.jpg);background-size:cover!important">
-                            <div class="overly-bg"></div>
-                            <div class="title-head">
-                                <h4>@lang('messages.Last Match Result')</h4>
-                                <span class="date">{{ $lastResult->created_at->format('l, F jS, Y') }}</span>
-                            </div>
-                            <div class="today-score px-0">
-                                <div class="today-match-team">
-                                    @php
-                                        $club1 = $lastResult->clubMatch->club1;
-                                        $club2 = $lastResult->clubMatch->club2;
-                                    @endphp
-                                    <img src="{{ $club1->image }}" alt="{{ $club1->current_translation->title }}"
-                                        style="width:60px" />
-                                    <h4>{{ $club1->current_translation->title }}</h4>
-                                    <span>{{ $club1->abbreviation }}</span>
-                                </div>
-                                <div class="today-final-score">
-                                    {{ $lastResult->club1_result }} <span>-</span> {{ $lastResult->club2_result }}
-                                    <h4>@lang('messages.final score')</h4>
-                                </div>
-                                <div class="today-match-team">
-                                    <img src="{{ $club2->image }}" alt="{{ $club2->current_translation->title }}"
-                                        style="width:60px" />
-                                    <h4>{{ $club2->current_translation->title }}</h4>
-                                    <span>{{ $club2->abbreviation }}</span>
-                                </div>
-                            </div>
-                            <div class="title-head">
-                                <h4>@lang('messages.Previous Results')</h4>
-                            </div>
-                            <div class="recent-match-results">
-                                @foreach ($recentResults as $result)
-                                    @php
-                                        $club1 = $result->clubMatch->club1;
-                                        $club2 = $result->clubMatch->club2;
-                                    @endphp
-                                    <div class="single-result">
-                                        <div class="team-result clearfix">
-                                            <div class="text-left match-result-list single-part">
-                                                <img class="result-img" src="{{ $club1->image }}"
-                                                    alt="{{ $club1->current_translation->title }}">
-                                                {{ $club1->current_translation->title }}
-                                            </div>
-                                            <div class="text-center match-score single-part">
-                                                <span class="score">{{ $result->club1_result }}</span> - <span
-                                                    class="score">{{ $result->club2_result }}</span>
-                                            </div>
-                                            <div class="text-left match-result-list single-part">
-                                                <img class="result-img" src="{{ $club2->image }}"
-                                                    alt="{{ $club2->current_translation->title }}">
-                                                {{ $club2->current_translation->title }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                                <div class="view-all-result">
-                                    <a href="/results">@lang('messages.View All') <i
-                                            class="fa fa-angle-double-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }}"
-                                            aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="separator-100"></div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-8 match-view-tite">
-                            <h3 class="title-bg">@lang('messages.Match fixture')</h3>
-                        </div>
-                        <div class="col-4 text-right match-view-more">
-                            <a class="view-more" href="/upcoming-matches">@lang('messages.View More') <i
-                                    class="fa fa-angle-double-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }}"
-                                    aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="match-list mmb-45"
-                                style="background-image: url(/upload/general/download2.jpg);background-size:cover!important">
-                                <div class="overly-bg"></div>
-                                <table class="match-table">
-                                    <tbody>
-
-                                        @foreach ($upcomingMatches as $match)
-                                            <tr>
-                                                <td class="medium-font">{{ $match->club1->current_translation->title }}
-                                                </td>
-                                                <td class="big-font">@lang('messages.VS')</td>
-                                                <td class="medium-font">{{ $match->club2->current_translation->title }}
-                                                </td>
-                                                <td>{{ $match->match_date->format('Y-m-d H:i') }}</td>
-                                                <td>{{ $match->current_translation->title }}</td>
-                                                <td><img src="{{ $match->champion->image }}" style="height: 50px"
-                                                        class="mx-1"
-                                                        alt="{{ $match->champion->current_translation->title }}">{{ $match->champion->current_translation->title }}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="d-flex flex-wrap justify-content-between">
-                        <h3 class="title-bg">@lang('messages.Points table')</h3>
-                        <div>
-                            <img src="{{ $champion->image }}" style="height:40px" class="mx-1"
-                                alt="{{ $champion->current_translation->title }}">
-                            {{ $champion->current_translation->title }}
-                        </div>
-                    </div>
-                    <div class="point-list text-center">
-                        <table class="point-table">
-                            <tbody>
-                                <tr>
-                                    <td>#</td>
-                                    <td class="country-name">@lang('messages.Team')</td>
-                                    <td>@lang('messages.PL')</td>
-                                    <td>@lang('messages.W')</td>
-                                    <td>@lang('messages.D')</td>
-                                    <td>@lang('messages.L')</td>
-                                    <td>@lang('messages.P')</td>
-                                </tr>
-                                @foreach ($clubsPoints as $key => $clubPoint)
-                                    <tr>
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>{{ $clubPoint->current_translation->title }}</td>
-                                        <td>{{ $clubPoint->results($champion->id)->count() }}</td>
-                                        <td>{{ $clubPoint->winingMatches($champion->id)->count() }}</td>
-                                        <td>{{ $clubPoint->drawMatches($champion->id)->count() }}</td>
-                                        <td>{{ $clubPoint->loosingMatches($champion->id)->count() }}</td>
-                                        <td>{{ $clubPoint->getPoints($champion->id) }}</td>
-                                    </tr>
-                                @endforeach
-
-
-
-                            </tbody>
-                        </table>
-                        <a class="view-more" href="/points-table">@lang('messages.View More') <i class="fa fa-angle-double-right"
-                                aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- All news area end Here-->
-
-    <!-- Latest Video Start Here-->
-    <div class="latest-video-section sec-spacer mb5 pb-5"
-        style="background:url(/website/images/latest-video/video-bg.jpg);background-size:cover!important">
-        <div class="overly-bg"></div>
-        <div class="container">
-            <h3 class="title-bg">@lang('messages.Latest Videos')</h3>
-            <div class="row rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="20"
-                data-autoplay="true" data-autoplay-timeout="6000" data-smart-speed="2000" data-dots="true"
-                data-nav="false" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false"
-                data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="false"
-                data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="false"
-                data-ipad-device-dots2="false" data-md-device="3" data-md-device-nav="false"
-                data-md-device-dots="false">
-
-                @foreach ($latestVideos as $latestVideo)
-                    <div class="col-md-12  mb-5">
-                        <div class="video-area mmb-40">
-                            <img src="{{ $latestVideo->image }}" alt="Video" style="width: 100%;height:240px" />
-                            <div class="videos-icon">
-                                <a class="popup-youtube" href="{{ $latestVideo->video_url }}">
-                                    <i class="fa fa-play" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-            </div>
-        </div>
-    </div>
-    <!-- Latest Video end Here-->
-
-
-    <!-- Gallery Section Start Here-->
-    <div class="gallery-section-area pb-70 pt-5">
-        <div class="container" id="grid">
-            <h3 class="title-bg">@lang('messages.Team gallery')</h3>
-            <div id="gallery-items">
+    <!-- Banner Bottom Section _________________________________ -->
+    <section class="banner-bottom-section">
+        <div class="opact-div">
+            <div class="container">
                 <div class="row">
-                    @foreach ($teamGallery as $photo)
-                        <div class="col-lg-4 col-md-6">
-                            <a class="image-popup" href="{{ $photo->image }}">
-                                <div class="single-gallery">
-                                    <img src="{{ $photo->image }}" alt="team-gallery"
-                                        style="height: 262px;width:360px" />
-                                    <div class="heading-conent">
+                    <div class="col-md-9 col-xs-12">
+                        <div class="banner-bottom-section-text">
+                            <h3>Make a single or monthly donation today</h3>
+                            <p>Find out how you can help children affected by poverty, conflict and natural disasters
+                                through a one-off donation or a pledge of regular support.</p>
+                        </div> <!-- /.banner-bottom-section-text -->
+                    </div> <!-- /.col -->
+                    <div class="col-md-3 col-xs-12">
+                        <div class="banner-bottom-section-button clear-fix">
+                            <div><a href="#" class="hvr-bounce-to-right">Learn More !</a></div>
+                        </div> <!-- /.banner-bottom-section-button -->
+                    </div> <!-- /.col -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.opact-div -->
+    </section> <!-- /.banner-bottom-section -->
 
-                                    </div>
-
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Gallery Section End Here-->
-
-    @include('website.components.champion-awards', ['championAwards' => $championAwards])
-
-
-    <!-- Testimonials Sections Start Here-->
-    <div class="testimonial-section pb-100 my-5">
-        <div class="container">
-            <h3 class="title-bg">@lang('messages.Testimonials')</h3>
+    <!-- You Can Bring ____________________________ -->
+    <section class="You-Can-Bring">
+        <div class="You-Can-Bring-Title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6 col-xs-12">
+                        <h3>You can bring real hope by $</h3>
+                    </div> <!-- /.col -->
+                    <div class="col-lg-7 col-sm-6 col-xs-12">
+                        <p>Your donation powers the Red Cross response to nearly 64,000 disasters a year nationwide,
+                            providing shelter, food, emotional support and other necessities to those affected</p>
+                    </div> <!-- /.col -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.You-Can-Bring-Title -->
+        <div class="You-Can-Bring-Item-Wrapper">
             <div class="row">
-                <div class="col-md-12">
-                    <div id="testimonial-slider" class="rs-carousel owl-carousel" data-loop="true" data-items="1"
-                        data-margin="0" data-autoplay="true" data-autoplay-timeout="6000" data-smart-speed="2000"
-                        data-dots="false" data-nav="false" data-nav-speed="false" data-mobile-device="1"
-                        data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="1"
-                        data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1"
-                        data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="1"
-                        data-md-device-nav="false" data-md-device-dots="false">
-                        @foreach ($testmonials as $testmonial)
-                            <div class="testimonial">
-                                <div class="testimonial-profile">
-                                    <a href="#">
-                                        <img src="{{ $testmonial->image }}" style="width:171px ; height:171px"
-                                            alt="{{ $testmonial->current_translation?->title }}"></a>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="Bring-Item text-center">
+                        <h3>Help our School Children</h3>
+                        <p>Be inspired! Take a look at the impact of our programmes which we've achievedthrough your support
+                            and donations</p>
+                        <span>$ 1200 To Go</span>
+                        <a href="#" class="a-comon hvr-bounce-to-right">Donation Now !</a>
+                    </div> <!-- /.Bring-Item -->
+                </div> <!-- /.col -->
+                <div class="col-sm-6  col-xs-12">
+                    <div class="Bring-Item bring-item-bg-two text-center">
+                        <h3>EAST AFRICACRISIS APPEAL</h3>
+                        <p>Be inspired! Take a look at the impact of our programmes which we've achievedthrough your support
+                            and donations</p>
+                        <span>$ 1400 To Go</span>
+                        <a href="#" class="a-comon hvr-bounce-to-right">Donation Now !</a>
+                    </div> <!-- /.Bring-Item -->
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+        </div> <!-- /.You-Can-Bring-Item-Wrapper -->
+    </section> <!-- /.You-Can-Bring -->
+
+    <!-- Rcent Causes ____________________________ -->
+    <section class="Rcent-Causes-Section">
+        <div class="container">
+            <div class="Theme-title text-center">
+                <h2>Rcent Causes</h2>
+                <h6>We need you</h6>
+            </div> <!-- /.Theme-title -->
+
+            <div class="Rcent-Causes-Item-Wrapper">
+                <div id="Rcent-Causes-Slider" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="Causes-Item">
+                            <div class="Causes-Img"><img src="images/home/img-1.jpg" alt="image"></div>
+                            <!-- /.Causes-Img -->
+                            <div class="Causes-Text">
+                                <h3>Child Abuse Help <br>Prevention</h3>
+                                <ul>
+                                    <li>Donated</li>
+                                    <li>
+                                        <div class="donate-piechart tran3s">
+                                            <div class="piechart" data-border-color="rgba(253,88,11,1)" data-value=".90">
+                                                <span>.90</span>
+                                            </div>
+                                        </div> <!-- /.donate-piechart -->
+                                    </li>
+                                    <li>$ 1600 to Go</li>
+                                </ul>
+                                <p>Child sponsorship is a unique relationship, that brings real hope and a life-affirming
+                                    experience.</p>
+                                <a href="causes-details.html">Donation</a>
+                            </div> <!-- /.Causes-Text -->
+                        </div> <!-- /.Causes-Item -->
+                    </div> <!-- /.item -->
+                    <div class="item">
+                        <div class="Causes-Item">
+                            <div class="Causes-Img"><img src="images/home/img-2.jpg" alt="image"></div>
+                            <!-- /.Causes-Img -->
+                            <div class="Causes-Text">
+                                <h3>The National <br>Charity</h3>
+                                <ul>
+                                    <li>Donated</li>
+                                    <li>
+                                        <div class="donate-piechart tran3s">
+                                            <div class="piechart" data-border-color="rgba(253,88,11,1)" data-value=".75">
+                                                <span>.75</span>
+                                            </div>
+                                        </div> <!-- /.donate-piechart -->
+                                    </li>
+                                    <li>$ 1700 to Go</li>
+                                </ul>
+                                <p>Child sponsorship is a unique relationship, that brings real hope and a life-affirming
+                                    experience.</p>
+                                <a href="causes-details.html">Donation</a>
+                            </div> <!-- /.Causes-Text -->
+                        </div> <!-- /.Causes-Item -->
+                    </div> <!-- /.item -->
+                    <div class="item">
+                        <div class="Causes-Item">
+                            <div class="Causes-Img"><img src="images/home/img-3.jpg" alt="image"></div>
+                            <!-- /.Causes-Img -->
+                            <div class="Causes-Text">
+                                <h3>The American Red <br>Cross</h3>
+                                <ul>
+                                    <li>Donated</li>
+                                    <li>
+                                        <div class="donate-piechart tran3s">
+                                            <div class="piechart" data-border-color="rgba(253,88,11,1)" data-value=".80">
+                                                <span>.80</span>
+                                            </div>
+                                        </div> <!-- /.donate-piechart -->
+                                    </li>
+                                    <li>$ 1500 to Go</li>
+                                </ul>
+                                <p>Child sponsorship is a unique relationship, that brings real hope and a life-affirming
+                                    experience.</p>
+                                <a href="causes-details.html">Donation</a>
+                            </div> <!-- /.Causes-Text -->
+                        </div> <!-- /.Causes-Item -->
+                    </div> <!-- /.item -->
+                </div> <!-- /.row -->
+                <a href="causes.html" class="hvr-float-shadow">Load more Causes</a>
+            </div> <!-- /.Rcent-Causes-Item-Wrapper -->
+        </div> <!-- /.container -->
+    </section> <!-- /.Rcent-Causes-Section -->
+
+    <!-- Company History _________________________________ -->
+    <section class="company-history-section">
+        <div class="company-history-shape-img-top"><img src="images/shape/shape-1.png" alt="shape-img"></div>
+        <!-- /.company-history-shape-img-top -->
+        <div class="company-history-containt-opact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6 history-item-weight">
+                        <div class="clear-fix">
+                            <div class="history-item item-one">
+                                <div>
+                                    <i class="flaticon-donate"></i>
+                                    <p>Fundrising</p>
+                                    <h2><span class="timer" data-from="0" data-to="1425" data-speed="2000"
+                                            data-refresh-interval="5">0</span></h2>
                                 </div>
-                                <div class="testimonial-content">
-                                    <h3 class="testimonial-title">{{ $testmonial->current_translation?->title }}</h3>
-                                    <span class="testimonial-post">{{ $testmonial->job }}</span>
-                                    <div class="client-rating">
-                                        @for ($i = 0; $i < $testmonial->rate; $i++)
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        @endfor
-
-                                    </div>
-                                    <p class="testimonial-description">
-                                        {{ $testmonial->current_translation?->description }}</p>
+                            </div> <!-- /.history-item -->
+                        </div> <!-- /.clear-fix -->
+                    </div> <!-- /.col -->
+                    <div class="col-lg-3 col-xs-6 history-item-weight">
+                        <div class="clear-fix">
+                            <div class="history-item item-two">
+                                <div>
+                                    <i class="flaticon-group"></i>
+                                    <p>Volunteer</p>
+                                    <h2><span class="timer" data-from="0" data-to="1200" data-speed="2000"
+                                            data-refresh-interval="5">0</span></h2>
                                 </div>
-                            </div>
-                        @endforeach
+                            </div> <!-- /.history-item -->
+                        </div> <!-- /.clear-fix -->
+                    </div> <!-- /.col -->
+                    <div class="col-lg-3 col-xs-6 history-item-weight">
+                        <div class="clear-fix">
+                            <div class="history-item item-three">
+                                <div>
+                                    <i class="flaticon-donation-3"></i>
+                                    <p>Donator</p>
+                                    <h2><span class="timer" data-from="0" data-to="201" data-speed="2000"
+                                            data-refresh-interval="5">0</span></h2>
+                                </div>
+                            </div> <!-- /.history-item -->
+                        </div> <!-- /.clear-fix -->
+                    </div> <!-- /.col -->
+                    <div class="col-lg-3 col-xs-6 history-item-weight">
+                        <div class="clear-fix">
+                            <div class="history-item item-four">
+                                <div>
+                                    <i class="flaticon-donation-1"></i>
+                                    <p>Raised Funds</p>
+                                    <h2><span class="timer" data-from="0" data-to="20" data-speed="2000"
+                                            data-refresh-interval="5">0</span>M</h2>
+                                </div>
+                            </div> <!-- /.history-item -->
+                        </div> <!-- /.clear-fix -->
+                    </div> <!-- /.col -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.company-history-containt-opact -->
+        <div class="company-history-shape-img-bottom"><img src="images/shape/shape-2.png" alt="shape-img"></div>
+        <!-- /.company-history-shape-img-bottom -->
+    </section> <!-- /.company-history-section -->
+
+    <!-- Upcoming Events ____________________________ -->
+    <section class="Upcoming-Events">
+        <div class="container">
+            <div class="Theme-title text-center">
+                <h2>Upcoming & Recent Events</h2>
+                <h6>Events</h6>
+            </div> <!-- /.Theme-title -->
+
+            <ul class="Events-Item-Wrapper">
+                <li class="clear-fix">
+                    <div class="events-img"><img src="images/home/img-4.jpg" alt="image"></div><!-- /.events-img -->
+                    <div class="day">
+                        <h2>23</h2>
+                        <h6>NOVEMBER <br> Monday</h6>
+                    </div> <!-- /.day -->
+                    <div class="events-text">
+                        <h4>Sharing seeds, sparking connection</h4>
+                        <p><i>24 December 2017, 08:00 - 27 December 2017, 00:00</i> Brooklyn, NY 10036 New York, NY 10036
+                            New York, United States</p>
+                    </div> <!-- /.events-text -->
+                    <a href="events-details.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </li> <!-- /.clear-fix -->
+            </ul> <!-- /.Events-Item-Wrapper -->
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="official-charity charity-one-bg-color">
+                        <h4>Run it forward official charity</h4>
+                        <p>Every day we bring real hope to millions of children in the world's hardest places as a sign of
+                            God's unconditional love</p>
+                    </div> <!-- /.official-charity -->
+                </div> <!-- /.col -->
+                <div class="col-md-6 col-xs-12">
+                    <div class="official-charity">
+                        <h4>Run it forward official charity</h4>
+                        <p>Every day we bring real hope to millions of children in the world's hardest places as a sign of
+                            God's unconditional love</p>
+                    </div> <!-- /.official-charity -->
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section> <!-- /.Upcoming-Events -->
+
+    <!-- testimonial section _________________________________ -->
+    <section class="testimonial-section">
+        <div class="testimonial-shape-img"><img src="images/shape/shape-3.png" alt="shape-img"></div><!-- /.shape-img -->
+        <div class="testimonial-opact">
+            <div class="testimonial-containt">
+                <div class="container">
+                    <div class="testimonial-shape-border"><i class="flaticon-right-quotation-sign"></i></div>
+
+                    <div id="client-carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#client-carousel" data-slide-to="0"></li>
+                            <li data-target="#client-carousel" data-slide-to="1" class="active"></li>
+                            <li data-target="#client-carousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item">
+                                <p>Every day we bring real hope to millions of children in the world's hardest places as a
+                                    sign of God's unconditional love.Every day we bring real hope to millions of children in
+                                    the world's hardest places</p>
+                                <span>Mahfuz R ( CEO Ch )</span>
+                                <img src="images/home/1.jpg" alt="image">
+                            </div> <!-- /.item -->
+                            <div class="item active">
+                                <p>Every day we bring real hope to millions of children in the world's hardest places as a
+                                    sign of God's unconditional love.Every day we bring real hope to millions of children in
+                                    the world's hardest places</p>
+                                <span>Mahfuz R ( CEO Ch )</span>
+                                <img src="images/home/1.jpg" alt="image">
+                            </div> <!-- /.item -->
+                            <div class="item">
+                                <p>Every day we bring real hope to millions of children in the world's hardest places as a
+                                    sign of God's unconditional love.Every day we bring real hope to millions of children in
+                                    the world's hardest places</p>
+                                <span>Mahfuz R ( CEO Ch )</span>
+                                <img src="images/home/1.jpg" alt="image">
+                            </div> <!-- /.item -->
+                        </div> <!-- /.carousel-inner -->
+                    </div> <!-- Wrapper for bootstrap slides -->
+                </div> <!-- /.container -->
+            </div> <!-- /.testimonial-containt -->
+        </div> <!-- /.testimonial-opact -->
+    </section> <!-- /.testimonial-section -->
+
+    <!-- News Update _________________________________ -->
+    <section class="news-update-section">
+        <div class="container">
+            <div class="Theme-title text-center">
+                <h2>News Update</h2>
+                <h6>Latest News</h6>
+            </div> <!-- /.Theme-title -->
+
+            <div class="row home-news-update-wrapper">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="home-news-update-item">
+                        <div class="news-update-img"><img src="images/home/img-5.jpg" alt="image"></div>
+                        <!-- /.news-update-img -->
+                        <div class="news-update-text">
+                            <span> <i class="fa fa-clock-o" aria-hidden="true"></i> March 4, 2017 1:10 pm</span>
+                            <p>Monsoon floods: World Vision warns of spike in child</p>
+                            <a href="blog-v1.html"><i class="fa fa-arrow-right" aria-hidden="true"></i> Learn more</a>
+                        </div> <!-- /.news-update-text -->
+                    </div> <!-- /.home-news-update-item -->
+                </div> <!-- /.col -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="home-news-update-item">
+                        <div class="news-update-img"><img src="images/home/img-6.jpg" alt="image"></div>
+                        <!-- /.news-update-img -->
+                        <div class="news-update-text">
+                            <span> <i class="fa fa-clock-o" aria-hidden="true"></i> April 4, 2017 1:10 pm</span>
+                            <p>Increase in heat-related illness for Iraqi children</p>
+                            <a href="blog-v1.html"><i class="fa fa-arrow-right" aria-hidden="true"></i> Learn more</a>
+                        </div> <!-- /.news-update-text -->
+                    </div> <!-- /.home-news-update-item -->
+                </div> <!-- /.col -->
+                <div class="col-md-4 col-xs-12">
+                    <div class="home-news-update-item">
+                        <div class="news-update-img"><img src="images/home/img-7.jpg" alt="image"></div>
+                        <!-- /.news-update-img -->
+                        <div class="news-update-text">
+                            <span> <i class="fa fa-clock-o" aria-hidden="true"></i> May 4, 2017 1:10 pm</span>
+                            <p>Charity fears that South Suda-nese refugee children</p>
+                            <a href="blog-v1.html"><i class="fa fa-arrow-right" aria-hidden="true"></i> Learn more</a>
+                        </div> <!-- /.news-update-text -->
+                    </div> <!-- /.home-news-update-item -->
+                </div> <!-- /.col -->
+            </div> <!-- /.home-news-update-wrapper -->
+        </div> <!-- /.container -->
+    </section> <!-- /.news-update-section -->
 
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonials Sections End Here-->
 
-    @include('website.components.brand', ['brands' => $brands])
 
+    {{-- @include('website.components.champion-awards', ['championAwards' => $championAwards]) --}}
+
+    {{-- @include('website.components.brand', ['brands' => $brands]) --}}
+    {{--
     @if ($popUp && $popUp->status && $popUp->image)
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="autoClickLink" style="display: none"></button>
         <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
@@ -437,6 +446,6 @@
                 document.getElementById('autoClickLink').click();
             });
         </script>
-    @endif
+    @endif --}}
 
 @endsection

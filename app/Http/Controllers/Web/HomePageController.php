@@ -10,8 +10,6 @@ use App\Models\AboutUs;
 use App\Models\Banner;
 use App\Models\Brand;
 use App\Models\ChampionAward;
-use App\Models\ClubMatch;
-use App\Models\ClubTeam;
 use App\Models\ContactMessage;
 use App\Models\ContactUs;
 use App\Models\History;
@@ -19,7 +17,6 @@ use App\Models\LatestVideo;
 use App\Models\Mission;
 use App\Models\News;
 use App\Models\Newsletter;
-use App\Models\PopupAd;
 use App\Models\Result;
 use App\Models\TeamGallery;
 use App\Models\Testimonial;
@@ -34,28 +31,11 @@ class HomePageController extends Controller
     {
         $banners  =  Banner::whereStatus(1)->latest()->get();
         $latestNews = News::latest()->take(3)->get();
-        $latestVideos = LatestVideo::latest()->take(9)->get();
-        $teamGallery = TeamGallery::latest()->take(6)->get();
-        $championAwards = ChampionAward::latest()->take(9)->get();
+
         $testmonials = Testimonial::latest()->take(9)->get();
-        $upcomingMatches = ClubMatch::where('match_date','>',now())->latest()->take(9)->get();
-        $lastResult = Result::latest()->first();
-        $recentResults = Result::where('id','!=',$lastResult->id)->latest()->take(6)->get();
-        $clubs = ClubTeam::latest()->take(9)->get();
-        $champion = ChampionAward::latest()->first();
-        $popUp = PopupAd::first();
-        $clubsPoints = ClubTeam::join('club_matches as cm1', 'club_teams.id', '=', 'cm1.club1_id')
-        ->join('club_matches as cm2', 'club_teams.id', '=', 'cm2.club2_id')
-        ->where('cm1.champion_award_id', $champion->id)
-        ->orWhere('cm2.champion_award_id', $champion->id)
-        ->select('club_teams.*')
-        ->distinct()
-        ->get()
-        ->sortByDesc(function ($club) use($champion) {
-            return $club->getPoints($champion->id);
-        })->values();
-        $brands = Brand::latest()->get();
-        return view('website.home',compact('banners','latestNews','popUp','latestVideos','teamGallery','championAwards','testmonials','brands','upcomingMatches','recentResults','lastResult','clubs','clubsPoints','champion'));
+
+        // $brands = Brand::latest()->get();
+        return view('website.home',compact('banners','latestNews','testmonials'));
     }
     public function aboutUs(Request $request)
     {
