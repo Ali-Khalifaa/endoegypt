@@ -91,6 +91,12 @@ class PermissionSeeder extends Seeder
             ['name' => 'about champion read',  'category' => 'About Us'],
             ['name' => 'about champion edit',  'category' => 'About Us'],
 
+            ['name' => 'events read'  ,  'category' => 'Event'],
+            ['name' => 'events create',  'category' => 'Event'],
+            ['name' => 'events edit'  ,  'category' => 'Event'],
+            ['name' => 'events delete',  'category' => 'Event'],
+            ['name' => 'event registration read'  ,  'category' => 'Event'],
+
             // ['name' => 'user read'  ,  'category' => 'User'],
             // ['name' => 'user edit'  ,  'category' => 'User'],
 

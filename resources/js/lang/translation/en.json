@@ -1073,7 +1073,11 @@
         "How did you learn about Us?":"How did you learn about Us?",
         "club1_result":"First Club Result",
         "club2_result":"Second Club Result",
-        "OrganizingCommittee":"Organizing Committee"
+        "OrganizingCommittee":"Organizing Committee",
+        "events":"Events",
+        "event_date":"Event Date",
+        "email_content":"Email Content",
+        "eventRegistration":"Event Registration"
     },
     "role_and_permissions": {
         "Banners": "Banners",

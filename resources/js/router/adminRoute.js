@@ -17,7 +17,9 @@ import organizingCommittee from "./adminRoute/organizingCommittee.js";
 import news from "./adminRoute/news.js";
 import contactUs from "./adminRoute/contactUs.js";
 import contactMessage from "./adminRoute/contactMessage.js";
+import eventRegistration from "./adminRoute/eventRegistration.js";
 import newsletter from "./adminRoute/newsletter.js";
+import events from "./adminRoute/events.js";
 import aboutUs from "./adminRoute/aboutUs.js";
 import aboutChampion from "./adminRoute/aboutChampion.js";
 import history from "./adminRoute/history.js";
@@ -56,7 +58,6 @@ const routes = [
             },
             ...admin,
             ...role,
-
             ...banner,
             ...joinUs,
             ...language,
@@ -67,8 +68,10 @@ const routes = [
             ...contactUs,
             ...contactMessage,
             ...newsletter,
+            ...events,
             ...aboutUs,
             ...aboutChampion,
+            ...eventRegistration,
             ...history,
             ...vision,
             ...mission,
