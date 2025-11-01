@@ -1084,7 +1084,11 @@
         "championship":"البطولة",
         "popup ad":"الاعلان المنبثق",
         "players":"اللاعبين",
-        "OrganizingCommittee":"اللجنة المنظمة"
+        "OrganizingCommittee":"اللجنة المنظمة",
+        "events":"الفعاليات",
+        "event_date":"تاريخ الفعالية",
+        "email_content":"محتوى البريد الالكتروني",
+        "eventRegistration":"تسجيل الفعاليات"
     },
     "role_and_permissions":{
         "Banners" : "السكشن المتحرك",

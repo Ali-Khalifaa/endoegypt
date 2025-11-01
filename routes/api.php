@@ -8,6 +8,8 @@ use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\ContactMessageController;
 use App\Http\Controllers\Dashboard\ContactUsController;
 use App\Http\Controllers\Dashboard\DashboardStatisticsController;
+use App\Http\Controllers\Dashboard\EventController;
+use App\Http\Controllers\Dashboard\EventRegistrationController;
 use App\Http\Controllers\Dashboard\FrequentlyAskedQuestionController;
 use App\Http\Controllers\Dashboard\HistoryController;
 use App\Http\Controllers\Dashboard\JoinUsController;
@@ -97,6 +99,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [ChangeLang::class]], fun
 
         // news
         Route::apiResource('news', NewsController::class);
+
+        // events
+        Route::apiResource('events', EventController::class);
+        
+        // event registration
+        Route::apiResource('event-registration', EventRegistrationController::class);
 
         // contact-us
         Route::apiResource('contact-us', ContactUsController::class);

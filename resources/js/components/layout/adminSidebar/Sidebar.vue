@@ -70,13 +70,24 @@
 
                     <li class="slide" v-show="permission.includes('organizing committee read')">
                         <router-link :to="{name:'organizingCommittee'}" class="side-menu__item">
-                            <i class="bx bx-image side-menu__icon"></i>
+                            <i class="bx bx-group side-menu__icon"></i>
                             <span class="side-menu__label">{{$t('global.OrganizingCommittee')}}</span>
                         </router-link>
                     </li>
 
+                    <li class="slide" v-show="permission.includes('events read')">
+                        <router-link :to="{name:'events'}" class="side-menu__item">
+                            <i class="bx bx-calendar side-menu__icon"></i>
+                            <span class="side-menu__label">{{$t('global.events')}}</span>
+                        </router-link>
+                    </li>
 
-
+                    <li class="slide" v-show="permission.includes('event registration read')">
+                        <router-link :to="{name:'eventRegistration'}" class="side-menu__item">
+                            <i class="bx bx-calendar-check side-menu__icon"></i>
+                            <span class="side-menu__label">{{$t('global.eventRegistration')}}</span>
+                        </router-link>
+                    </li>
 
                     <li class="slide" v-show="permission.includes('news read')">
                         <router-link :to="{name:'news'}" class="side-menu__item">
