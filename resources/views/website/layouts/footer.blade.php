@@ -2,12 +2,17 @@
     <div class="main-footer-top-section">
         <div class="container">
             <div class="footer-top-item">
-                <h3>In 2017 donations from the UK transformed <br>the lives of more than</h3>
+
                 <div class="Subscribe-footer-form">
-                    <p>Latest news delivered right to your inbox!</p>
-                    <form action="#">
-                        <input type="text">
-                        <button class="tran3s hvr-bounce-to-right">Subscribe</button>
+                    <p>@lang('messages.Latest news delivered right to your inbox!')</p>
+                    <form method="post" action="/newsletter">
+                        @csrf
+
+                        <input type="text" class="form-input" style="margin-bottom:5px" name="name" placeholder="{{ __('messages.Name') }}"
+                            required>
+                        <input type="email" class="form-input"  name="email" placeholder="{{ __('messages.Email') }}"
+                            required>
+                        <button class="tran3s hvr-bounce-to-right" >{{ __('messages.Send') }}</button>
                     </form>
                 </div> <!-- /.Subscribe-footer-form -->
             </div> <!-- /.footer-top-item -->
@@ -21,46 +26,29 @@
                     <div class="footer-containt-item-text-and-logo">
                         <div class="footer-logo"><a href="/"><img src="/assets/images/authentication/logo.png"
                                     alt="logo"></a></div>
-                        <p>We offer a suite of services and support to help minimise the impact of multiple sclerosis on
-                            your life and ensure your journey is not undertaken alone, while the search for a cure
-                            continues</p>
+                        <p>@lang("messages.To provide humanitarian and social support to individuals and families in need through sustainable development projects that promote self-reliance and contribute to building a more cohesive and just society.")</p>
                     </div> <!-- /.footer-containt-item-text-and-logo -->
                 </div> <!-- /.col -->
                 <div class="col-md-7 col-xs-12">
                     <div class="row">
-                        <div class="col-xs-4 footer-containt-width">
+                        <div class="col-xs-6 footer-containt-width">
                             <div class="footer-containt-item">
                                 <ul>
-                                    <li><a href="#">Donate</a></li>
-                                    <li><a href="#">Events</a></li>
-                                    <li><a href="#">Interpreter Service</a></li>
-                                    <li><a href="#">Archives</a></li>
-                                    <li><a href="#">Apply to volunteer</a></li>
-                                    <li><a href="#">Privacy</a></li>
+                                     <li><a href="/">@lang("messages.HomePage")</a></li>
+                                    <li><a href="/events">@lang("messages.Events")</a></li>
+
                                 </ul>
                             </div> <!-- /.footer-containt-item -->
                         </div> <!-- /.col -->
-                        <div class="col-xs-4 footer-containt-width">
+                        <div class="col-xs-6 footer-containt-width">
                             <div class="footer-containt-item">
                                 <ul>
-                                    <li><a href="#">Who we are</a></li>
-                                    <li><a href="#">Shop</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Certifications</a></li>
-                                    <li><a href="#">News</a></li>
+                                    <li><a href="/news">@lang("messages.News")</a></li>
+                                    <li><a href="/contact">@lang("messages.Contact us")</a></li>
                                 </ul>
                             </div> <!-- /.footer-containt-item -->
                         </div> <!-- /.col -->
-                        <div class="col-xs-4 footer-containt-width">
-                            <div class="footer-containt-item">
-                                <ul>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">404 Page</a></li>
-                                    <li><a href="#">Coming Soon</a></li>
-                                    <li><a href="#">About us</a></li>
-                                </ul>
-                            </div> <!-- /.footer-containt-item -->
-                        </div> <!-- /.col -->
+
                     </div> <!-- /.row -->
                 </div> <!-- /.col -->
             </div> <!-- /.row -->
@@ -71,15 +59,31 @@
         <div class="container">
             <div class="clear-fix">
                 <ul class="footer-bottom-left-said">
-                    <li><span>Love <a href="#">Template_mr</a> ©2017,</span></li>
-                    <li><span><a href="#">Chcharity</a> All Rights Reserved</span></li>
+                    <li><span><a href="#">{{ now()->year . ' - ' . env('APP_NAME') }}</a> All Rights
+                            Reserved</span></li>
                 </ul> <!-- /.footer-bottom-left-said -->
                 <ul class="footer-bottom-right-said">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+
+                    @if ($joinUs->facebook)
+                        <li><a href="{{ $joinUs->facebook }}" target="_blank"><i aria-hidden="true"
+                                    class="fa fa-facebook"></i><span class="mx-2">@lang('messages.Facebook')</span> </a></li>
+                    @endif
+                    @if ($joinUs->twitter)
+                        <li><a href="{{ $joinUs->twitter }}" target="_blank"><i aria-hidden="true"
+                                    class="fa fa-twitter"></i><span class="mx-2">@lang('messages.Twitter')</span></a></li>
+                    @endif
+                    @if ($joinUs->instagram)
+                        <li><a href="{{ $joinUs->instagram }}" target="_blank"><i aria-hidden="true"
+                                    class="fa fa-instagram"></i><span class="mx-2">@lang('messages.Instagram')</span></a></li>
+                    @endif
+                    @if ($joinUs->linkedin)
+                        <li><a href="{{ $joinUs->linkedin }}" target="_blank"><i aria-hidden="true"
+                                    class="fa fa-linkedin"></i><span class="mx-2">@lang('messages.Linkedin')</span> </a></li>
+                    @endif
+                    @if ($joinUs->youtube)
+                        <li><a href="{{ $joinUs->youtube }}" target="_blank"><i aria-hidden="true"
+                                    class="fa fa-youtube"></i><span class="mx-2">@lang('messages.Youtube')</span> </a></li>
+                    @endif
                 </ul> <!-- /.footer-bottom-right-said -->
             </div> <!-- /.clear-fix -->
         </div> <!-- /.container -->

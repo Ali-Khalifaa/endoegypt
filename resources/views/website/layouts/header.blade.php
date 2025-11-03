@@ -5,7 +5,7 @@
 							<ul class="float-left top-header-left ">
                                 <li class="">
                                     <a href="/change-language/{{app()->getLocale() == 'ar' ? 'en' : 'ar'}}" >
-                                        <img style="display: inline-block;width: 30px;border-radius: 50%;height: 30px;margin: 0 5px;" src="{{asset(app()->getLocale() != 'ar' ? 'assets/images/flags/uae_flag.jpg' : 'assets/images/flags/us_flag.jpg')}}"
+                                        <img style="display: inline-block;width: 30px;border-radius: 50%;height: 30px;margin: 0 5px;" src="{{asset(app()->getLocale() != 'ar' ? 'assets/images/flags/eg.webp' : 'assets/images/flags/us_flag.jpg')}}"
                                              alt="Current Language Flag"
                                              class="flag-icon">
                                         <span>{{ app()->getLocale() != 'ar' ? "العربية" : 'English' }}</span>
@@ -39,28 +39,50 @@
 							<div class="col-md-4 col-xs-12">
 								<div class="them-logo"><a href="/"><img src="/assets/images/authentication/logo.png" alt="logo"></a></div><!-- /.them-logo -->
 							</div> <!-- /.col -->
-							<div class="col-md-8 col-xs-12">
-								<div class="middle-header-contant">
-									<ul class="clear-fix">
-										<li>
-											<i class="flaticon-clock"></i>
-											<p>Monday - Saturday</p>
-											<span>10 am to 06 pm</span>
-										</li>
-										<li>
-											<i class="flaticon-smartphone"></i>
-											<p>Want to talk with us</p>
-											<span>+88 01912704287</span>
-										</li>
-										<li>
-											<i class="flaticon-envelope"></i>
-											<p>Send me Emial</p>
-											<a href="#"><span class="__cf_email__" data-cfemail="fd94939b92a29ebd9a909c9491d39e9290">[email&#160;protected]</span></a>
-										</li>
-									</ul> <!-- /.clear-fix -->
-								</div> <!-- /.middle-header-contant -->
-							</div> <!-- /.col -->
-						</div> <!-- /.row -->
+                            <div class="col-md-8 col-xs-12">
+                                <div class="middle-header-contant">
+                                    <ul class="clear-fix">
+                                        @if(optional($contactUs->current_translation)->title)
+                                            <li>
+                                                <i class="fa fa-location-arrow"></i>
+                                                <p>{{ optional($contactUs->current_translation)->title }}</p>
+                                            </li>
+                                        @endif
+
+                                        @if(optional($contactUs)->phone_one || optional($contactUs)->phone_two)
+                                            <li>
+                                                <i class="flaticon-smartphone"></i>
+                                                <p>@lang("messages.Want to talk with us")</p>
+                                                <span>
+                                                    @if(optional($contactUs)->phone_one)
+                                                        <a href="tel:{{ preg_replace('/\s+/', '', $contactUs->phone_one) }}">{{ $contactUs->phone_one }}</a>
+                                                    @endif
+                                                    @if(optional($contactUs)->phone_two)
+                                                        @if(optional($contactUs)->phone_one)<br>@endif
+                                                        <a href="tel:{{ preg_replace('/\s+/', '', $contactUs->phone_two) }}">{{ $contactUs->phone_two }}</a>
+                                                    @endif
+                                                </span>
+                                            </li>
+                                        @endif
+
+                                        @if(optional($contactUs)->email_one || optional($contactUs)->email_two)
+                                            <li>
+                                                <i class="flaticon-envelope"></i>
+                                                <p>@lang("messages.Send me Email")</p>
+                                                <span>
+                                                    @if(optional($contactUs)->email_one)
+                                                        <a href="mailto:{{ $contactUs->email_one }}">{{ $contactUs->email_one }}</a>
+                                                    @endif
+                                                    @if(optional($contactUs)->email_two)
+                                                        @if(optional($contactUs)->email_one)<br>@endif
+                                                        <a href="mailto:{{ $contactUs->email_two }}">{{ $contactUs->email_two }}</a>
+                                                    @endif
+                                                </span>
+                                            </li>
+                                        @endif
+                                    </ul> <!-- /.clear-fix -->
+                                </div> <!-- /.middle-header-contant -->
+                            </div> <!-- /.col -->		</div> <!-- /.row -->
 					</div> <!-- /.container -->
 				</div> <!-- /.middle-header -->
 
@@ -83,47 +105,28 @@
 								<!-- Collect the nav links, forms, and other content for toggling -->
 								<div class="collapse navbar-collapse" id="navbar-collapse-1">
 									<ul class="nav navbar-nav">
-										<li class="dropdown-holder active current-page-item Active-manu"><a href="index.html">Home</a>
-											<ul class="sub-menu">
-												<li><a href="index.html" class="tran3s">Home Version one</a></li>
-											</ul>
-										</li>
+                                        <li class="dropdown-holder {{ request()->is('/') ? 'active current-page-item Active-manu' : '' }}">
+                                            <a href="/">@lang("messages.HomePage")</a>
+                                        </li>
 
-										<li class="dropdown-holder"><a href="#">Events</a>
-											<ul class="sub-menu">
-												<li><a href="events-v1.html" class="tran3s">Events Version one</a></li>
-												<li><a href="events-v2.html" class="tran3s">Events Version two</a></li>
-												<li><a href="events-details.html" class="tran3s">Events Details</a></li>
-											</ul>
-										</li>
+                                        <li class="dropdown-holder {{ request()->is('events*') || request()->is('event-details*') ? 'active current-page-item Active-manu' : '' }}">
+                                            <a href="/events">@lang("messages.Events")</a>
+                                        </li>
 
+                                        <li class="dropdown-holder {{ request()->is('news*')  || request()->is('news-details*')? 'active current-page-item Active-manu' : '' }}">
+                                            <a href="/news">@lang("messages.News")</a>
+                                        </li>
 
-
-
-										<li class="dropdown-holder"><a href="#">Blog</a>
-											<ul class="sub-menu">
-												<li><a href="blog-v1.html" class="tran3s">Blog Version one</a></li>
-												<li><a href="blog-v2.html" class="tran3s">Blog Version Two</a></li>
-												<li><a href="blog-details.html" class="tran3s">Blog Details</a></li>
-											</ul>
-										</li>
-
-										<li class="dropdown-holder"><a href="#">Shop</a>
-											<ul class="sub-menu">
-												<li><a href="shop.html" class="tran3s">Shop</a></li>
-												<li><a href="shop-details.html" class="tran3s">Shop Details</a></li>
-											</ul>
-										</li>
-
-										<li><a href="contact-us.html">Contact</a></li>
-									</ul>
+                                        <li class="{{ request()->is('contact') ? 'active current-page-item Active-manu' : '' }}">
+                                            <a href="/contact">@lang("messages.Contact")</a>
+                                        </li>		</ul>
 								</div><!-- /.navbar-collapse -->
 							</nav>
 
 							<div class="float-right">
 								<div class="search-button-content clear-fix">
 
-						   			<a href="#" class="a-comon main-menu-button">Donation <i class="flaticon-hand"></i></a>
+						   			<a href="/contact" class="a-comon main-menu-button">@lang("messages.Donate") <i class="flaticon-hand"></i></a>
 						   		</div> <!-- /.right-content -->
 							</div> <!-- /.float-right -->
 						</div> <!-- / menu-skew-div -->

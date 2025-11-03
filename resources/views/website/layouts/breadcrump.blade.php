@@ -21,7 +21,7 @@
 
                         <li><a href="#">{{ $currentPage }}</a></li>
                     </ul>
-                    <a href="#" class="hvr-bounce-to-right">@lang('messages.need_help')</a>
+                    {{-- <a href="#" class="hvr-bounce-to-right">@lang('messages.need_help')</a> --}}
                 </div>
             </div>
         </div>

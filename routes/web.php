@@ -29,13 +29,10 @@ Route::group(['middleware' => [ChangeLangForWeb::class]], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('web.home');
     Route::post('/newsletter', [HomePageController::class, 'newsletter'])->name('web.newsletter');
     Route::get('/change-language/{lang}', [HomePageController::class, 'changeLanguage']);
-    Route::get('/team-gallery', [HomePageController::class, 'viewTeamGallery']);
-    Route::get('/champion-gallery', [HomePageController::class, 'viewChampionGallery']);
+    Route::get('/events', [HomePageController::class, 'events']);
+    Route::get('/event-details/{event}-{slug?}', [HomePageController::class, 'eventDetails']);
     Route::get('/news', [HomePageController::class, 'news']);
     Route::get('/news-details/{news}-{slug?}', [HomePageController::class, 'newsDetails']);
-    Route::get('/upcoming-matches', [HomePageController::class, 'upcomingMatches']);
-    Route::get('/results', [HomePageController::class, 'results']);
-    Route::get('/points-table', [HomePageController::class, 'pointsTable']);
     Route::get('/contact', [HomePageController::class, 'contact']);
     Route::get('/about-the-club', [HomePageController::class, 'aboutUs']);
     Route::get('/about-the-championship', [HomePageController::class, 'aboutChampionship']);

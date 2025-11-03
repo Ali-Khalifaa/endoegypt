@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-sm-12 my-5 container">
         <div class="default-pagination text-center">
-            <ul style="max-width: 550px">
+            <ul class="blog-list-next-and-pivias" style="max-width: 550px">
                 <!-- Previous Button -->
                 @if ($model->onFirstPage())
-                    <li class="disabled"><a href="javascript::void()"><i class="fa fa-angle-left"></i>@lang('messages.Previous')</a></li>
+                    <li class="disabled"><a href="javascript::void()"><i class="fa fa-angle-left"></i></a></li>
                 @else
-                    <li><a href="{{ $model->previousPageUrl() }}"><i class="fa fa-angle-left"></i>@lang('messages.Previous')</a></li>
+                    <li><a href="{{ $model->previousPageUrl() }}"><i class="fa fa-angle-left"></i></a></li>
                 @endif
 
                 <!-- Page Numbers -->
@@ -26,9 +26,9 @@
 
                 <!-- Next Button -->
                 @if ($model->hasMorePages())
-                    <li><a href="{{ $model->nextPageUrl() }}">@lang('messages.Next') <i class="fa fa-angle-right"></i></a></li>
+                    <li><a href="{{ $model->nextPageUrl() }}"> <i class="fa fa-angle-right"></i></a></li>
                 @else
-                    <li class="disabled"><a href="javascript::void()">@lang('messages.Next') <i class="fa fa-angle-right"></i></a></li>
+                    <li class="disabled"><a href="javascript::void()"> <i class="fa fa-angle-right"></i></a></li>
                 @endif
             </ul>
         </div>

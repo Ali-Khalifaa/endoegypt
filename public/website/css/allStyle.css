@@ -778,11 +778,11 @@ img {
 }
 
 #theme-main-banner .camera_prev>span:before {
-    content: ''
+    content: '<'
 }
 
 #theme-main-banner .camera_next>span:before {
-    content: ''
+    content: '>'
 }
 
 #theme-main-banner.camera_wrap .camera_pag .camera_pag_ul li,

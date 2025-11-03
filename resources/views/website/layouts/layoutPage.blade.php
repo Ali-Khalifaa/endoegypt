@@ -7,13 +7,14 @@
 
        @php
             $joinUs = \App\Models\JoinUs::first();
+            $contactUs = \App\Models\ContactUs::first();
         @endphp
 
-         @include('website.layouts.header', ['joinUs' => $joinUs])
+         @include('website.layouts.header', ['joinUs' => $joinUs,'contactUs' => $contactUs])
 
         @yield('body')
 
-        @include('website.layouts.footer', ['joinUs' => $joinUs])
+        @include('website.layouts.footer', ['joinUs' => $joinUs,'contactUs' => $contactUs])
 
     </div>
 
