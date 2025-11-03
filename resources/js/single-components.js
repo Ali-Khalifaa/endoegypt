@@ -19,12 +19,14 @@ import ErrorMessage from "./components/ErrorMessage.vue";
 import VueTelInput from 'vue-tel-input';
 import 'vue-tel-input/vue-tel-input.css';
 import ContactForm from './views/website/contactForm.vue';
+import EventForm from './views/website/EventForm.vue';
 
 const globalOptions = {
     mode: 'auto',
 };
 
 app.component('contact-form', ContactForm);
+app.component('event-form', EventForm);
 app.component('complete-register', completeRegister);
 app.component('register', register);
 app.component('login', login);

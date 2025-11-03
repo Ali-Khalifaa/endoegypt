@@ -15,6 +15,7 @@ class Event extends Model
     protected $table = 'events';
 
     protected $guarded = ['id'];
+    protected $casts = ['event_date'=>'datetime'];
 
     public function getImageAttribute($value): string
     {
@@ -25,7 +26,7 @@ class Event extends Model
     {
         return asset('upload/general/'.$value);
     }
-    
+
 
     public function details()
     {
@@ -35,5 +36,10 @@ class Event extends Model
     public function registrations()
     {
         return $this->hasMany(EventRegistration::class);
+    }
+
+        public function getSlugAttribute()
+    {
+        return Str::slug($this->current_translation?->title);
     }
 }

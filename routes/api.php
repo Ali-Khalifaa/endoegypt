@@ -49,6 +49,7 @@ Route::group(['prefix' => 'web', 'middleware' => [ChangeLang::class]], function 
     Route::post('register',[RegisterController::class,'register'])->middleware([StartSession::class,EncryptCookies::class,'guest:user']);
     Route::post('complete-register',[RegisterController::class,'completeRegister'])->middleware([StartSession::class,EncryptCookies::class,'auth:user']);
     Route::post('contact-us',[HomePageController::class,'contactUsForm']);
+    Route::post('event-register',[HomePageController::class,'eventRegister']);
     Route::post('login',[RegisterController::class,'loginForm'])->middleware([StartSession::class,EncryptCookies::class,'guest:user','throttle:login']);
     // Route::get('terms',[WebPagesController::class,'terms']);
     // Route::get('privacy',[WebPagesController::class,'privacy']);
@@ -102,7 +103,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [ChangeLang::class]], fun
 
         // events
         Route::apiResource('events', EventController::class);
-        
+
         // event registration
         Route::apiResource('event-registration', EventRegistrationController::class);
 

@@ -1,20 +1,35 @@
-<!doctype html>
-<html class="no-js" lang="{{app()->getLocale()}}">
-	@include('website.layouts.headStyle')
-	<body class="home-two {{app()->getLocale() == 'ar' ? 'rtl' : ''}}" id="app">
-        @php
-            $joinUs = \App\Models\JoinUs::first();
-        @endphp
-        @include('website.layouts.header',['joinUs' => $joinUs])
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+@include('website.layouts.headStyle')
 
+<body class="{{ app()->getLocale() == 'ar' ? 'rtl' : '' }}" >
+    <div class="main-page-wrapper">
+
+       @php
+            $joinUs = \App\Models\JoinUs::first();
+            $contactUs = \App\Models\ContactUs::first();
+        @endphp
+
+         @include('website.layouts.header', ['joinUs' => $joinUs,'contactUs' => $contactUs])
 
         @yield('body')
 
+        @include('website.layouts.footer', ['joinUs' => $joinUs,'contactUs' => $contactUs])
+
+    </div>
 
 
-        @include('website.layouts.footer',['joinUs' => $joinUs])
+    <!-- Scroll Top Button -->
+    <button class="scroll-top tran7s p-color-bg">
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </button>
 
-	</body>
+    <!-- pre loader  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+    </div>
+
+
+</body>
+
 </html>
-
-

@@ -1,86 +1,85 @@
 @extends('website.layouts.layoutPage')
-@section('pageTitle',__('messages.News Details'))
+@section('pageTitle', __('messages.News Details'))
 
 @section('body')
-    @include('website.layouts.breadcrump', ['currentPage' => __('messages.News Details'),'image' => '/upload/general/point-table.jpg','parentPage'=>__('messages.News'),'parentPageUri' => 'news'])
+    @include('website.layouts.breadcrump', [
+        'currentPage' => __('messages.News Details'),
+        'image' => '/upload/general/point-table.jpg',
+        'parentPage' => __('messages.News'),
+        'parentPageUri' => 'news',
+    ])
 
 
 
-
-    <div class="single-blog-details sec-spacer">
+    <!-- Blog Details ____________________________ -->
+    <section class="">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-12 md-mb-30">
-                    <div class="single-image">
-                        <img src="{{$news->image}}" alt="{{$news->current_translation->title}}" style="width:100%">
-                    </div>
-                    <h1>{{$news->current_translation->title}}</h1>
+                <div class="col-md-8 col-xs-12 mt-1" style="margin-top: 5px;">
+                    <div class="Blog-Details-Wrapper">
 
-                    <div class="share-section2">
-                        {!!$news->current_translation->description!!}
-                    </div>
+                        <div class="blog-details-img-one"><img src="{{ $news->image }}"
+                                alt="{{ $news->current_translation->title }}" style="width:770px;height:490px"></div>
+                        <!-- /.blog-details-img-one -->
+                        <span class="date" style="color:#dd7207;font-weight:bold"><i class="fa fa-calendar-check-o"></i>
+                            {{ $news->created_at->format('Y-m-d H:i') }}</span>
+                        <h1>{{ $news->current_translation->title }}</h1>
 
-                    <div class="like-section">
-                        <h3 class="title-bg">@lang('messages.YOU MIGHT ALSO LIKE')</h3>
-                        <div class="row">
-                            @foreach ($mightLikeThis as $blog)
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                <div class="popular-post-img">
-                                    <a href="/news-details/{{$blog->id}}-{{$blog->slug}}"><img src="{{$blog->image}}" alt="{{$blog->current_translation->title}}"></a>
-                                </div>
-                                <h3>
-                                    <a href="/news-details/{{$blog->id}}-{{$blog->slug}}">{{$blog->current_translation->title}}</a>
-                                </h3>
-                                <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{$blog->created_at->format('F d, Y')}}</span>
-
-                            </div>
-                            @endforeach
-
-
+                        <div class="share-section2 " style="margin: 30px 0 ;">
+                            {!! $news->current_translation->description !!}
                         </div>
-                    </div>
 
-                </div>
-                <div class="col-lg-3 col-md-12">
-                    <!-- Blog Single Sidebar Start Here -->
-                    <div class="sidebar-area">
+                        <div class="share-section2 " style="margin: 30px 0 ;">
+                            {!! $news->details?->current_translation?->description !!}
+                        </div>
 
-                        <div class="recent-post-area">
-                            <span class="title"> @lang('messages.Latest News')</span>
-                            <ul class="news-post">
-                                @foreach ($latestNews as $blog)
+
+
+                    </div> <!-- /.Blog-Details-Wrapper -->
+                </div> <!-- /.col -->
+
+                <!-- ================ Right Side Bar ================== -->
+                <div class="col-md-4 col-xs-12">
+                    <div class="Right-Side-Bar">
+
+                        <div class="Side-Upcoming-Events">
+                            <h5>@lang('messages.Upcoming Events')</h5>
+                            <ul>
+                                @foreach ($upcomingEvents as $event)
                                     <li>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                                <div class="item-post">
-                                                    <div class="row">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 paddimg-right-none">
-                                                            <img src="{{$blog->image}}" alt="blog-image" title="News image" />
-                                                        </div>
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                                            <h4><a href="/news-details/{{$blog->id}}-{{$blog->slug}}">{{$blog->current_translation->title}}</a></h4>
-                                                            <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{$blog->created_at->format('F d, Y')}}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <img src="{{ $event->image }}" alt="{{ $event->current_translation->title }}">
+                                        <div class="text">
+                                            <h6><a href="/event-details/{{ $event->id }}-{{ $event->slug }}">{{ $event->current_translation->title }}</a></h6>
+                                            <span>{{ $event->created_at->format('F d, Y') }}</span>
                                         </div>
                                     </li>
                                 @endforeach
-
-
                             </ul>
-                        </div>
+                        </div> <!-- /.Side-Upcoming-Events -->
+                        <div class="Side-Recent-News-Post">
+                            <h5>@lang('messages.Recent News Post')</h5>
+                            <ul>
+                                @foreach ($latestNews as $blog)
+                                    <li>
+                                        <img src="{{ $blog->image }}" alt="{{ $blog->current_translation->title }}">
+                                        <div class="text">
+                                            <h6><a
+                                                    href="/news-details/{{ $blog->id }}-{{ $blog->slug }}">{{ $blog->current_translation->title }}</a>
+                                            </h6>
+                                            <span>{{ $blog->created_at->format('F d, Y') }}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div> <!-- /.Side-Recent-News-Post -->
+                    </div> <!-- /.Right-Side-Bar -->
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section> <!-- /.Rcent-Causes-Section -->
 
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    @include('website.components.brand',['brands' => $brands])
+    {{-- @include('website.components.brand',['brands' => $brands]) --}}
 
 
 @endsection

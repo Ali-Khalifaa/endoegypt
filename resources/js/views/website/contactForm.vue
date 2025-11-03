@@ -1,171 +1,153 @@
 <template>
-    <!-- Start::app-content -->
 
+    <div class="card-body p-5">
+        <div class="row gy-3">
 
-    <!-- Start::row-1 -->
-    <div class="col-xxl-12 col-xl-12 col-lg-12 my-5">
-        <div class="row justify-content-center align-items-center authentication authentication-basic h-100">
-            <div class="col-xl-12 col-lg-5 col-md-6 col-sm-8 col-12 px-0">
-                <div class="card">
-                    <div class="card-body p-5">
-                        <p class="h5 fw-semibold mb-2 text-center my-4">{{ $t('global.Contact Us') }}</p>
+            <div class="col-md-6 mb-4">
+                <label class="form-label" style="margin-top: 20px;">
+                    {{ $t('global.name') }}
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" class="form-control form-control-lg" v-model="v$.data.name.$model" :class="{
+                    'is-invalid': v$.data.name.$error || errors[`name`],
+                    'is-valid': !v$.data.name.$invalid && !errors[`name`]
+                }">
 
-                        <div class="row gy-3">
-                           
-                            <div class="col-md-6 mb-4">
-                                <label class="form-label">
-                                    {{ $t('global.name') }}
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" class="form-control form-control-lg" v-model="v$.data.name.$model"
-                                    :class="{
-                                        'is-invalid': v$.data.name.$error || errors[`name`],
-                                        'is-valid': !v$.data.name.$invalid && !errors[`name`]
-                                    }">
-
-                                <div class="invalid-feedback">
-                                    <span v-if="v$.data.name.required.$invalid">{{ $t('validation.fieldRequired')
-                                        }}<br />
-                                    </span>
-                                    <span v-if="v$.data.name.minLength.$invalid">{{
-                                        $t('validation.TitleIsMustHaveAtLeast') }} {{
-                                            v$.data.name.minLength.$params.min
-                                        }} {{ $t('validation.Letters') }} <br />
-                                    </span>
-                                    <span v-if="v$.data.name.maxLength.$invalid">{{
-                                        $t('validation.TitleIsMustHaveAtMost') }} {{
-                                            v$.data.name.maxLength.$params.max
-                                        }} {{ $t('validation.Letters') }}
-                                    </span>
-                                </div>
-                                <template v-if="errors[`name`]">
-                                    <error-message v-for="(errorMessage, index) in errors[`name`]" :key="index">
-                                        {{ errorMessage }}
-                                    </error-message>
-                                </template>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <label class="form-label">
-                                    {{ $t('global.subject') }}
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" class="form-control form-control-lg"
-                                    v-model="v$.data.subject.$model" :class="{
-                                        'is-invalid': v$.data.subject.$error || errors[`subject`],
-                                        'is-valid': !v$.data.subject.$invalid && !errors[`subject`]
-                                    }">
-
-                                <div class="invalid-feedback">
-                                    <span v-if="v$.data.subject.required.$invalid">{{
-                                        $t('validation.fieldRequired') }}<br />
-                                    </span>
-                                    <span v-if="v$.data.subject.minLength.$invalid">{{
-                                        $t('validation.TitleIsMustHaveAtLeast') }} {{
-                                            v$.data.subject.minLength.$params.min
-                                        }} {{ $t('validation.Letters') }} <br />
-                                    </span>
-                                    <span v-if="v$.data.subject.maxLength.$invalid">{{
-                                        $t('validation.TitleIsMustHaveAtMost') }} {{
-                                            v$.data.subject.maxLength.$params.max
-                                        }} {{ $t('validation.Letters') }}
-                                    </span>
-                                </div>
-                                <template v-if="errors[`subject`]">
-                                    <error-message v-for="(errorMessage, index) in errors[`subject`]" :key="index">
-                                        {{ errorMessage }}
-                                    </error-message>
-                                </template>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <label class="form-label">
-                                    {{ `${$t('global.email')}` }}
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="email" class="form-control form-control-lg"
-                                    v-model.trim="v$.data.email.$model"
-                                    :class="{ 'is-invalid': v$.data.email.$error || errors[`email`], 'is-valid': !v$.data.email.$invalid && !errors[`email`] }">
-
-                                <div class="invalid-feedback">
-                                    <span v-if="v$.data.email.required.$invalid">{{
-                                        $t('global.EmailIsRequired') }} <br /></span>
-                                    <span v-if="v$.data.email.email.$invalid">{{
-                                        $t('global.ThisFieldMastBeEmail') }} <br /></span>
-                                </div>
-                                <template v-if="errors['email']">
-                                    <error-message v-for="(errorMessage, index) in errors['email']" :key="index">
-                                        {{ errorMessage }}
-                                    </error-message>
-                                </template>
-                            </div>
-                            <div class="col-md-6 mb-4">
-
-                                <label class="form-label"></label>
-
-                                <label class="form-label">
-                                    {{ `${$t('global.Mobile number, including country code')}` }}
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <vue-tel-input @validate="phoneValidation" v-model="v$.data.phone.$model"
-                                    defaultCountry="AE" :placeholder="'REE'" :onlyCountries="['SA','EG','AE','QA','KW']" autocomplete="off"
-                                    :styleClasses="['form-control', { 'is-invalid': v$.data.phone.$error || (!is_valid && is_valid != undefined) || errors[`phone`], 'is-valid': !v$.data.phone.$error && !errors[`phone`] && is_valid && data.phone}]"></vue-tel-input>
-                                <div class="invalid-feedback">
-                                    <span v-if="v$.data.phone.required.$error">{{ $t('global.PhoneIsRequired') }}
-                                        <br /></span>
-                                    <span
-                                        v-if="v$.data.phone.integer.$error || v$.data.phone.maxLength.$error || (!is_valid && is_valid != undefined)">{{
-                                            $t('global.PhoneIsMustHaveAtLeast')
-                                        }} <br /></span>
-                                </div>
-                                <template v-if="errors['phone']">
-                                    <error-message v-for="(errorMessage, index) in errors['phone']" :key="index">
-                                        {{ errorMessage }}
-                                    </error-message>
-                                </template>
-                            </div>
-                            <div class="col-md-12 mb-4">
-                                <label class="form-label">
-                                    {{ `${$t('global.message')}` }}
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <textarea class="form-control form-control-lg" rows="6" v-model="v$.data.message.$model"
-                                    :class="{
-                                        'is-invalid': v$.data.message.$error || errors[`message`],
-                                        'is-valid': !v$.data.message.$invalid && !errors[`message`]
-                                    }"></textarea>
-                                <div class="invalid-feedback">
-                                    <span v-if="v$.data.message.required.$invalid">{{ $t('validation.fieldRequired')
-                                        }}<br />
-                                    </span>
-                                </div>
-                                <template v-if="errors[`message`]">
-                                    <error-message v-for="(errorMessage, index) in errors[`message`]" :key="index">
-                                        {{ errorMessage }}
-                                    </error-message>
-                                </template>
-                            </div>
-                               
-                           
-
-
-
-                            <div class="col-xl-12 d-grid mt-2 text-center">
-                                <button type="button" @click.prevent="AddSubmit" class="btn btn-lg btn-primary" v-if="!loading" style="background-color: #fbc02d;">{{
-                                    $t('global.Submit') }}</button>
-                                     <button class="btn btn-primary btn-loader" style="cursor: not-allowed" disabled v-else>
-                                            <span class="me-2">{{ $t('auth.Loading') }}</span>
-                                            <span class="loading"><i class="ri-loader-2-fill fs-16"></i></span>
-                                        </button>
-                            </div>
-                        </div>
-                
-                    </div>
+                <div class="invalid-feedback"  v-show="v$.data.name.$error || errors[`name`]">
+                    <span v-if="v$.data.name.required.$invalid">{{ $t('validation.fieldRequired')
+                    }}<br />
+                    </span>
+                    <span v-if="v$.data.name.minLength.$invalid">{{
+                        $t('validation.TitleIsMustHaveAtLeast') }} {{
+                            v$.data.name.minLength.$params.min
+                        }} {{ $t('validation.Letters') }} <br />
+                    </span>
+                    <span v-if="v$.data.name.maxLength.$invalid">{{
+                        $t('validation.TitleIsMustHaveAtMost') }} {{
+                            v$.data.name.maxLength.$params.max
+                        }} {{ $t('validation.Letters') }}
+                    </span>
                 </div>
+                <template v-if="errors[`name`]">
+                    <error-message v-for="(errorMessage, index) in errors[`name`]" :key="index">
+                        {{ errorMessage }}
+                    </error-message>
+                </template>
+            </div>
+            <div class="col-md-6 mb-4">
+                <label class="form-label" style="margin-top: 20px;">
+                    {{ $t('global.subject') }}
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" class="form-control form-control-lg" v-model="v$.data.subject.$model" :class="{
+                    'is-invalid': v$.data.subject.$error || errors[`subject`],
+                    'is-valid': !v$.data.subject.$invalid && !errors[`subject`]
+                }">
+
+                <div class="invalid-feedback" v-show="v$.data.subject.$error || errors[`subject`]">
+                    <span v-if="v$.data.subject.required.$invalid">{{
+                        $t('validation.fieldRequired') }}<br />
+                    </span>
+                    <span v-if="v$.data.subject.minLength.$invalid">{{
+                        $t('validation.TitleIsMustHaveAtLeast') }} {{
+                            v$.data.subject.minLength.$params.min
+                        }} {{ $t('validation.Letters') }} <br />
+                    </span>
+                    <span v-if="v$.data.subject.maxLength.$invalid">{{
+                        $t('validation.TitleIsMustHaveAtMost') }} {{
+                            v$.data.subject.maxLength.$params.max
+                        }} {{ $t('validation.Letters') }}
+                    </span>
+                </div>
+                <template v-if="errors[`subject`]">
+                    <error-message v-for="(errorMessage, index) in errors[`subject`]" :key="index">
+                        {{ errorMessage }}
+                    </error-message>
+                </template>
+            </div>
+            <div class="col-md-6 mb-4">
+                <label class="form-label" style="margin-top: 20px;">
+                    {{ `${$t('global.email')}` }}
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="email" class="form-control form-control-lg" v-model.trim="v$.data.email.$model"
+                    :class="{ 'is-invalid': v$.data.email.$error || errors[`email`], 'is-valid': !v$.data.email.$invalid && !errors[`email`] }">
+
+                <div class="invalid-feedback" v-show="v$.data.email.$error || errors[`email`]">
+                    <span v-if="v$.data.email.required.$invalid">{{
+                        $t('global.EmailIsRequired') }} <br /></span>
+                    <span v-if="v$.data.email.email.$invalid">{{
+                        $t('global.ThisFieldMastBeEmail') }} <br /></span>
+                </div>
+                <template v-if="errors['email']">
+                    <error-message v-for="(errorMessage, index) in errors['email']" :key="index">
+                        {{ errorMessage }}
+                    </error-message>
+                </template>
+            </div>
+            <div class="col-md-6 mb-4">
+
+                <label class="form-label" style="margin-top: 20px;"></label>
+
+                <label class="form-label" style="margin-top: 20px;">
+                    {{ `${$t('global.Mobile number, including country code')}` }}
+                    <span class="text-danger">*</span>
+                </label>
+                <vue-tel-input @validate="phoneValidation" v-model="v$.data.phone.$model" defaultCountry="AE"
+                    :placeholder="'REE'" :onlyCountries="['SA', 'EG', 'AE', 'QA', 'KW']" autocomplete="off"
+                    :styleClasses="['form-control', { 'is-invalid': v$.data.phone.$error || (!is_valid && is_valid != undefined) || errors[`phone`], 'is-valid': !v$.data.phone.$error && !errors[`phone`] && is_valid && data.phone }]"></vue-tel-input>
+                <div class="invalid-feedback" v-show="v$.data.phone.$error || errors[`phone`]">
+                    <span v-if="v$.data.phone.required.$error">{{ $t('global.PhoneIsRequired') }}
+                        <br /></span>
+                    <span
+                        v-if="v$.data.phone.integer.$error || v$.data.phone.maxLength.$error || (!is_valid && is_valid != undefined)">{{
+                            $t('global.PhoneIsMustHaveAtLeast')
+                        }} <br /></span>
+                </div>
+                <template v-if="errors['phone']">
+                    <error-message v-for="(errorMessage, index) in errors['phone']" :key="index">
+                        {{ errorMessage }}
+                    </error-message>
+                </template>
+            </div>
+            <div class="col-md-12 mb-4">
+                <label class="form-label" style="margin-top: 20px;">
+                    {{ `${$t('global.message')}` }}
+                    <span class="text-danger">*</span>
+                </label>
+                <textarea class="form-control form-control-lg" rows="6" v-model="v$.data.message.$model" :class="{
+                    'is-invalid': v$.data.message.$error || errors[`message`],
+                    'is-valid': !v$.data.message.$invalid && !errors[`message`]
+                }" style="margin-bottom: 20px;"></textarea>
+                <div class="invalid-feedback" v-show="v$.data.message.$error || errors[`message`]">
+                    <span v-if="v$.data.message.required.$invalid">{{ $t('validation.fieldRequired')
+                    }}<br />
+                    </span>
+                </div>
+                <template v-if="errors[`message`]">
+                    <error-message v-for="(errorMessage, index) in errors[`message`]" :key="index">
+                        {{ errorMessage }}
+                    </error-message>
+                </template>
+            </div>
+
+
+
+
+
+            <div class="col-xl-12 d-grid mt-2 text-center">
+                <button type="button" @click.prevent="AddSubmit" class="btn btn-lg btn-primary hvr-float-shadow" v-if="!loading"
+                    style="background-color: #fd580b;">{{
+                        $t('global.Submit') }}</button>
+                <button class="btn btn-primary btn-loader" style="cursor: not-allowed" disabled v-else>
+                    <span class="me-2">{{ $t('auth.Loading') }}</span>
+                    <span class="loading"><i class="ri-loader-2-fill fs-16"></i></span>
+                </button>
             </div>
         </div>
-    </div>
-    <!--End::row-1 -->
 
-    <!-- End::app-content -->
+    </div>
+
 </template>
 
 <script>
@@ -201,7 +183,7 @@ export default {
                 email: '',
                 message: '',
                 phone: '',
-      
+
             },
         });
 
@@ -249,14 +231,13 @@ export default {
             is_valid.value = e.valid;
             submitdata.data.code_country = e.countryCallingCode;
         }
-        function resetModal()
-        {
+        function resetModal() {
             nextTick(() => { v$.value.$reset() });
         }
 
         return {
             v$, ...toRefs(submitdata), loading, errors
-            , is_valid, t, phoneValidation,resetModal
+            , is_valid, t, phoneValidation, resetModal
         }
     },
     methods: {
@@ -272,7 +253,7 @@ export default {
                 formData.append('subject', this.data.subject);
                 formData.append('message', this.data.message);
                 formData.append('email', this.data.email);
-                formData.append('phone', `+${this.data.code_country}`+this.data.phone);
+                formData.append('phone', `+${this.data.code_country}` + this.data.phone);
 
                 this.loading = true;
                 webApi.post(`/web/contact-us`, formData)
@@ -285,7 +266,7 @@ export default {
                             timer: 3000
                         });
 
-                        this.data =  {
+                        this.data = {
                             name: "",
                             subject: "",
                             email: '',
@@ -293,8 +274,8 @@ export default {
                             phone: '',
                         };
 
-                        this.errors =  [];
-                        this.is_valid =  true;
+                        this.errors = [];
+                        this.is_valid = true;
                         this.resetModal();
 
                     })
@@ -329,12 +310,12 @@ export default {
 }
 
 .text-primary {
-    color: #fbc02d !important;
+    color: #fd580b !important;
 }
 
 .btn-primary {
-    background-color: #fbc02d !important;
-    border-color: #fbc02d !important;
+    background-color: #fd580b !important;
+    border-color: #fd580b !important;
 }
 
 .coustom-select {
@@ -418,16 +399,16 @@ input[type="file"] {
 }
 
 .authentication-cover:before {
-    background-color: #fbc02d;
+    background-color: #fd580b;
 }
 
 .text-primary {
-    color: #fbc02d !important;
+    color: #fd580b !important;
 }
 
 .btn-primary {
-    background-color: #fbc02d !important;
-    border-color: #fbc02d !important;
+    background-color: #fd580b !important;
+    border-color: #fd580b !important;
 }
 
 /*.tab-style-3 .nav-item .nav-link.services:after {*/
@@ -485,7 +466,7 @@ input[type="file"] {
 }
 
 .active-data {
-    color: #fbc02d !important;
+    color: #fd580b !important;
     opacity: 1;
 }
 
@@ -507,4 +488,9 @@ input[type="file"] {
         margin-top: 3rem;
     }
 }
+
+.invalid-feedback *{
+    color:rgb(231, 56, 56);
+}
+
 </style>
