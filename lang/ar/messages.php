@@ -693,7 +693,14 @@ return [
     'Latest news delivered right to your inbox!'=>'آخر الأخبار تصل مباشرة إلى بريدك الإلكتروني!',
     'To provide humanitarian and social support to individuals and families in need through sustainable development projects that promote self-reliance and contribute to building a more cohesive and just society.'=>'تقديم الدعم الإنساني والاجتماعي للأفراد والأسر المحتاجة من خلال مشاريع التنمية المستدامة التي تعزز الاعتماد على الذات وتساهم في بناء مجتمع أكثر تماسكاً وعدالة.',
 
-
+    'Raised Funds'=>'الأموال المرفوعة',
+    'Donator'=>'المتبرع',
+    'Volunteer'=>'متطوع',
+    'Fundrising'=>'جمع التبرعات',
+    'Protect Planet'=>'حماية الكوكب',
+    'Volunteer'=>'متطوع',
+    'Children’s Care'=>'رعاية الأطفال',
+    'Donate'=>'تبرع',
     'Registration Confirmation'=>'تأكيد التسجيل',
     'Thank You For Joining Us'=>'شكرا لانضمامك إلينا',
     'YOU MIGHT ALSO LIKE'=>'قد يعجبك أيضًا',

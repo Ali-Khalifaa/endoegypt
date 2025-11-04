@@ -39,25 +39,25 @@
                     <div class="item">
                         <div class="text-center list-item">
                             <i class="flaticon-handshake"></i>
-                            <h6><a href="#">Children’s Care</a></h6>
+                            <h6><a href="#">@lang("messages.Children’s Care")</a></h6>
                         </div> <!-- /.list-item -->
                     </div> <!-- /.item -->
                     <div class="item">
                         <div class="text-center list-item">
                             <i class="flaticon-donation-1"></i>
-                            <h6><a href="#">Donate</a></h6>
+                            <h6><a href="#">@lang("messages.Donate")</a></h6>
                         </div> <!-- /.list-item -->
                     </div> <!-- /.item -->
                     <div class="item">
                         <div class="text-center list-item">
                             <i class="flaticon-donation"></i>
-                            <h6><a href="#">Volunteer</a></h6>
+                            <h6><a href="#">@lang("messages.Volunteer")</a></h6>
                         </div> <!-- /.list-item -->
                     </div> <!-- /.item -->
                     <div class="item">
                         <div class="text-center list-item">
                             <i class="flaticon-donation-2"></i>
-                            <h6><a href="#">Protect Planet</a></h6>
+                            <h6><a href="#">@lang("messages.Protect Planet")</a></h6>
                         </div> <!-- /.list-item -->
                     </div> <!-- /.item -->
                 </div> <!-- / #Children-Care-List-Slider -->
@@ -128,7 +128,7 @@
                             <div class="history-item item-one">
                                 <div>
                                     <i class="flaticon-donate"></i>
-                                    <p>Fundrising</p>
+                                    <p>@lang("messages.Fundrising")</p>
                                     <h2><span class="timer" data-from="0" data-to="1425" data-speed="2000"
                                             data-refresh-interval="5">0</span></h2>
                                 </div>
@@ -140,7 +140,7 @@
                             <div class="history-item item-two">
                                 <div>
                                     <i class="flaticon-group"></i>
-                                    <p>Volunteer</p>
+                                    <p>@lang("messages.Volunteer")</p>
                                     <h2><span class="timer" data-from="0" data-to="1200" data-speed="2000"
                                             data-refresh-interval="5">0</span></h2>
                                 </div>
@@ -152,7 +152,7 @@
                             <div class="history-item item-three">
                                 <div>
                                     <i class="flaticon-donation-3"></i>
-                                    <p>Donator</p>
+                                    <p>@lang("messages.Donator")</p>
                                     <h2><span class="timer" data-from="0" data-to="201" data-speed="2000"
                                             data-refresh-interval="5">0</span></h2>
                                 </div>
@@ -164,7 +164,7 @@
                             <div class="history-item item-four">
                                 <div>
                                     <i class="flaticon-donation-1"></i>
-                                    <p>Raised Funds</p>
+                                    <p>@lang("messages.Raised Funds")</p>
                                     <h2><span class="timer" data-from="0" data-to="20" data-speed="2000"
                                             data-refresh-interval="5">0</span>M</h2>
                                 </div>
