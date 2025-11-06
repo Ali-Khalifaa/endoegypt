@@ -790,6 +790,9 @@ img {
 .testimonial-containt .carousel-indicators {
     display: none !important
 }
+.about-description *{
+    color:#fff!important;
+}
 
 #theme-main-banner .camera_caption>div {
     background: 0 0;

@@ -707,6 +707,9 @@ return [
     'Volunteer'=>'Volunteer',
     'Children’s Care'=>'Children’s Care',
     'Donate'=>'Donate',
+    'Organizing Committees'=>'Organizing Committees',
+    'Our Team'=>'Our Team',
+    'Next'=>'Next',
     'Next'=>'Next',
 
 ];

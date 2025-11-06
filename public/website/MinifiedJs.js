@@ -20873,9 +20873,7 @@ function stickyHeader() {
 // toggle menu for mobile
 function mobileDropdown() {
     if ($(".main-menu").length) {
-        $(".main-menu nav ul li.dropdown-holder").append(function () {
-            return '<i class="fa fa-bars" aria-hidden="true"></i>';
-        });
+
         $(".main-menu nav ul li.dropdown-holder .fa").on("click", function () {
             $(this).parent("li").children("ul").slideToggle();
         });
@@ -20919,24 +20917,24 @@ function scrollToTop() {
 
 // Theme-banner slider
 function BannerSlider() {
-    var banner = $("#theme-main-banner");
-    if (banner.length) {
-        banner.camera({
-            //here I declared some settings, the height and the presence of the thumbnails
-            height: "750px",
-            navigation: true,
-            pagination: true,
-            thumbnails: false,
-            playPause: false,
-            autoplay: true,
-            pauseOnClick: false,
-            hover: false,
-            overlayer: true,
-            loader: "none",
-            time: 5000,
-            minHeight: "600px",
-        });
-    }
+    // var banner = $("#theme-main-banner");
+    // if (banner.length) {
+    //     banner.camera({
+    //         //here I declared some settings, the height and the presence of the thumbnails
+    //         height: "750px",
+    //         navigation: true,
+    //         pagination: true,
+    //         thumbnails: false,
+    //         playPause: false,
+    //         autoplay: true,
+    //         pauseOnClick: false,
+    //         hover: false,
+    //         overlayer: true,
+    //         loader: "none",
+    //         time: 5000,
+    //         minHeight: "600px",
+    //     });
+    // }
 }
 
 // isoptop Project Gallery
@@ -21373,30 +21371,62 @@ jQuery(window).on("load", function () {
     })(jQuery);
 });
 
-let dateCountDown = $('#count-down').data('date');
-if(dateCountDown){
-const eventDate = new Date(dateCountDown).getTime();
-const countdown = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
+let intervalId = null;
+$('.count-down').each(function () {
+    const $el = $(this);
+    const dateCountDown = $el.data('date');
+    console.log(dateCountDown)
+    if (!dateCountDown) return;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const eventDate = new Date(dateCountDown).getTime();
+    if (isNaN(eventDate)) return;
 
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    const getTarget = (selectors) => {
+        for (const s of selectors) {
+            const found = $el.find(s)[0];
+            if (found) return found;
+        }
+        // fallback to global IDs if nothing inside the container
+        for (const s of selectors) {
+            const found = document.getElementById(s.replace('#', ''));
+            if (found) return found;
+        }
+        return null;
+    };
 
-    if (distance < 0) {
-        clearInterval(countdown);
-        document.getElementById("days").innerHTML = "0";
-        document.getElementById("hours").innerHTML = "0";
-        document.getElementById("minutes").innerHTML = "0";
-        document.getElementById("seconds").innerHTML = "0";
+    const daysEl = getTarget(['#days', '.days']);
+    const hoursEl = getTarget(['#hours', '.hours']);
+    const minutesEl = getTarget(['#minutes', '.minutes']);
+    const secondsEl = getTarget(['#seconds', '.seconds']);
+
+    function update() {
+        const now = Date.now();
+        const distance = eventDate - now;
+
+        if (distance <= 0) {
+            clearInterval(intervalId);
+            if (daysEl) daysEl.innerHTML = '0';
+            if (hoursEl) hoursEl.innerHTML = '0';
+            if (minutesEl) minutesEl.innerHTML = '0';
+            if (secondsEl) secondsEl.innerHTML = '0';
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (daysEl) daysEl.innerHTML = days;
+        if (hoursEl) hoursEl.innerHTML = hours;
+        if (minutesEl) minutesEl.innerHTML = minutes;
+        if (secondsEl) secondsEl.innerHTML = seconds;
     }
-}, 1000);
-}
+
+    update();
+    intervalId = setInterval(update, 1000);
+    $el.data('countdownInterval', intervalId);
+});
 

@@ -6,8 +6,20 @@
 
     <!-- Theme Main Banner ____________________________ -->
     <section>
-        <div id="theme-main-banner">
-            @foreach ($banners ?? [] as $banner)
+        <div id="theme-main-banner" style="height:800px">
+            <div data-src="{{ $bannerVideo->image ?? '' }}" style="height:800px;position: relative;">
+                <div class="camera_caption">
+                    <div class="container text-center">
+                        <video autoplay muted loop playsinline preload="auto"
+                            style="width:100%;height:800px;object-fit:cover;box-shadow:26px 12px 20px rgb(50 44 44 / 28%)">
+                            <source src="{{ $bannerVideo->image }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            {{-- @foreach ($banners ?? [] as $banner)
                 @php
                     $title = $banner->current_translation?->title ?? '';
                     $description = $banner->current_translation?->description ?? '';
@@ -21,12 +33,10 @@
                             @if ($description)
                                 <h6 class="wow fadeInUp animated" data-wow-delay="0.4s">{{ $description }}</h6>
                             @endif
-                            {{-- <a href="#" class="tran3s banner-button wow fadeInUp animated hvr-bounce-to-right"
-                               data-wow-delay="0.7s">Donation Now</a> --}}
-                        </div> <!-- /.container -->
-                    </div> <!-- /.camera_caption -->
+                        </div>
+                    </div>
                 </div>
-            @endforeach
+            @endforeach --}}
         </div> <!-- /#theme-main-banner -->
     </section>
 
@@ -39,25 +49,25 @@
                     <div class="item">
                         <div class="text-center list-item">
                             <i class="flaticon-handshake"></i>
-                            <h6><a href="#">@lang("messages.Children’s Care")</a></h6>
+                            <h6><a href="#">@lang('messages.Children’s Care')</a></h6>
                         </div> <!-- /.list-item -->
                     </div> <!-- /.item -->
                     <div class="item">
                         <div class="text-center list-item">
                             <i class="flaticon-donation-1"></i>
-                            <h6><a href="#">@lang("messages.Donate")</a></h6>
+                            <h6><a href="#">@lang('messages.Donate')</a></h6>
                         </div> <!-- /.list-item -->
                     </div> <!-- /.item -->
                     <div class="item">
                         <div class="text-center list-item">
                             <i class="flaticon-donation"></i>
-                            <h6><a href="#">@lang("messages.Volunteer")</a></h6>
+                            <h6><a href="#">@lang('messages.Volunteer')</a></h6>
                         </div> <!-- /.list-item -->
                     </div> <!-- /.item -->
                     <div class="item">
                         <div class="text-center list-item">
                             <i class="flaticon-donation-2"></i>
-                            <h6><a href="#">@lang("messages.Protect Planet")</a></h6>
+                            <h6><a href="#">@lang('messages.Protect Planet')</a></h6>
                         </div> <!-- /.list-item -->
                     </div> <!-- /.item -->
                 </div> <!-- / #Children-Care-List-Slider -->
@@ -70,55 +80,60 @@
         <div class="opact-div">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-xs-12">
-                        <div class="banner-bottom-section-text About-Us-Section" style="margin: 20px 0 ;">
-                            <div class="Watch-Case-video" style="color:#fff">
-                                <h3 style="color:#fff">@lang("messages.Watch Case video")</h3>
-                                <p style="color:#fff">@lang("messages.We take pride in being responsive, making a difference at a critical point in peoples’ lives. We have been doing this since 1944, working with veterans of every conflict, and we envisage continuing doing so for the ‘long haul’ – supporting all future generations of our soldiers and their dependants.")</p>
-                                <div class="Case-video">
-                                    <img src="images/about/img-3.jpg" alt="image">
-                                    {{-- /assets/images/authentication/logo.png --}}
-                                    <div class="video-play">
-                                        <a data-fancybox="iframe" href="{{$bannerVideo->image}}"><i
-                                                class="flaticon-play-button"></i></a>
-                                    </div> <!-- /.video-play -->
-                                </div> <!-- /.Case-video -->
-                            </div>
-                        </div> <!-- /.banner-bottom-section-text -->
-                    </div> <!-- /.col -->
+                    <div class="we-are-innovators">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="innovators-text">
+                                    <h3 style="color:#fff">{{ $aboutUs->current_translation?->title }}</h3>
+                                    <div style="color:#fff!important" class="about-description">
+                                        {!! $aboutUs->current_translation?->description !!}
+                                    </div>
+                                </div> <!-- /.innovators-text -->
+                            </div> <!-- /.col -->
+                            <div class="col-md-6 col-xs-12">
+                                <div class="innovators-img" style="padding:0 20px"><img src="{{ $aboutUs->image }}"
+                                        style="width: 100%;height:510px;border-radius: 20px;" alt="image"></div>
+                                <!-- /.innovators-img -->
+                            </div> <!-- /.col -->
+                        </div> <!-- /.row -->
+                    </div> <!-- /.we-are-innovators -->
 
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /.opact-div -->
     </section> <!-- /.banner-bottom-section -->
 
-    <section class="About-Us-Section" style="margin: 120px 0 0;">
+    <section class="Team-Pages">
         <div class="container">
-            <div class="we-are-innovators">
-                <div class="row">
-                    <div class="col-md-7 col-xs-12">
-                        <div class="innovators-text">
-                            <h3>{{ $aboutUs->current_translation?->title }}</h3>
-                            <div>
-                                {!! $aboutUs->current_translation?->description !!}
-                            </div>
-                        </div> <!-- /.innovators-text -->
-                    </div> <!-- /.col -->
-                    <div class="col-md-5 col-xs-12">
-                        <div class="innovators-img"><img src="{{ $aboutUs->image }}" style="width: 420px;height:510px"
-                                alt="image"></div>
-                        <!-- /.innovators-img -->
-                    </div> <!-- /.col -->
-                </div> <!-- /.row -->
-            </div> <!-- /.we-are-innovators -->
+            <div class="Theme-title text-center">
+                <h2>@lang('messages.Organizing Committees')</h2>
+                <h6>@lang('messages.Our Team')</h6>
+            </div> <!-- /.Theme-title -->
+            <div class="row">
 
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="Our-Team-Item">
+                        <div class="Team-Img"><img src="/images/experts/img-11.jpg" alt="image"></div><!-- /.Team-Img -->
+                        <div class="Team-Text">
+                            <h5>Mahfuz Riad</h5>
+                            <p>A trio of Business Doctors is celebrating a successful bid to sit on the framework of
+                                specialist advisors</p>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- /.row -->
         </div> <!-- /.container -->
-    </section> <!-- /.About-Us-Section -->
-
+    </section>
 
     <!-- Company History _________________________________ -->
     <section class="company-history-section">
-        <div class="company-history-shape-img-top"><img src="images/shape/shape-1.png" alt="shape-img"></div>
+        <div class="company-history-shape-img-top"><img src="/images/shape/shape-1.png" alt="shape-img"></div>
         <!-- /.company-history-shape-img-top -->
         <div class="company-history-containt-opact">
             <div class="container">
@@ -128,7 +143,7 @@
                             <div class="history-item item-one">
                                 <div>
                                     <i class="flaticon-donate"></i>
-                                    <p>@lang("messages.Fundrising")</p>
+                                    <p>@lang('messages.Fundrising')</p>
                                     <h2><span class="timer" data-from="0" data-to="1425" data-speed="2000"
                                             data-refresh-interval="5">0</span></h2>
                                 </div>
@@ -140,7 +155,7 @@
                             <div class="history-item item-two">
                                 <div>
                                     <i class="flaticon-group"></i>
-                                    <p>@lang("messages.Volunteer")</p>
+                                    <p>@lang('messages.Volunteer')</p>
                                     <h2><span class="timer" data-from="0" data-to="1200" data-speed="2000"
                                             data-refresh-interval="5">0</span></h2>
                                 </div>
@@ -152,7 +167,7 @@
                             <div class="history-item item-three">
                                 <div>
                                     <i class="flaticon-donation-3"></i>
-                                    <p>@lang("messages.Donator")</p>
+                                    <p>@lang('messages.Donator')</p>
                                     <h2><span class="timer" data-from="0" data-to="201" data-speed="2000"
                                             data-refresh-interval="5">0</span></h2>
                                 </div>
@@ -164,7 +179,7 @@
                             <div class="history-item item-four">
                                 <div>
                                     <i class="flaticon-donation-1"></i>
-                                    <p>@lang("messages.Raised Funds")</p>
+                                    <p>@lang('messages.Raised Funds')</p>
                                     <h2><span class="timer" data-from="0" data-to="20" data-speed="2000"
                                             data-refresh-interval="5">0</span>M</h2>
                                 </div>
@@ -209,9 +224,41 @@
                         </div> <!-- /.day -->
                         <div class="events-text">
                             <h4>{{ $title }}</h4>
-                            <p><i>{{ $created_display }}</i> {{ $description ?: $details }}</p>
+                            {{-- <p><i>{{ $created_display }}</i> </p> --}}
+                            <div class="Causes-Details-Wrapper">
+                                <div class="Causes-Details-Item">
+                                    <div class="Causes-Text">
+                                        <ul class="count-down" id="count-down" data-date="{{ $event->event_date }}">
+                                            <li>
+                                                <span id="days">0</span>
+                                                <p>@lang('messages.Day')</p>
+                                            </li>
+                                            <li>
+                                                <span id="hours">00</span>
+                                                <p>@lang('messages.Hours')</p>
+                                            </li>
+                                            <li>
+                                                <span id="minutes">00</span>
+                                                <p>@lang('messages.Minutes')</p>
+                                            </li>
+                                            <li>
+                                                <span id="seconds">00</span>
+                                                <p>@lang('messages.Seconds')</p>
+                                            </li>
+
+
+                                        </ul>
+                                        {{-- <ul class="Wacker-Drive">
+                                                <li><i class="fa fa-clock-o"
+                                                        aria-hidden="true"></i>{{ $event->created_at->format('Y-m-d H:i') }}
+                                                </li>
+                                            </ul> --}}
+
+                                    </div>
+                                </div>
+                            </div>
                         </div> <!-- /.events-text -->
-                        <a href="/events-details/{{ $event->id }}-{{ $event->slug ?? '' }}"><i
+                        <a href="/event-details/{{ $event->id }}-{{ $event->slug ?? '' }}"><i
                                 class="fa fa-arrow-right" aria-hidden="true"></i></a>
                     </li> <!-- /.clear-fix -->
                 @endforeach

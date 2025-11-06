@@ -12,7 +12,8 @@
 
                                     </a>
 
-                                </li>		</ul> <!-- /.top-header-left -->
+                                </li>
+                            	</ul> <!-- /.top-header-left -->
 							<ul class="float-right top-header-right">
 								    @if ($joinUs->facebook)
                                         <li><a href="{{$joinUs->facebook}}" target="_blank"><i class="fa fa-facebook"></i> </a></li>
@@ -29,62 +30,21 @@
                                     @if ($joinUs->youtube)
                                         <li><a href="{{$joinUs->youtube}}" target="_blank"><i class="fa fa-youtube"></i> </a></li>
                                     @endif
-							</ul> <!-- /.top-header-right -->
-						</div> <!-- /.clear-fix -->
-					</div> <!-- /.container -->
-				</div> <!-- /.top-header -->
-				<div class="middle-header">
+							</ul>
+						</div>
+					</div>
+				</div>
+				{{-- <div class="middle-header">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-4 col-xs-12">
 								<div class="them-logo"><a href="/"><img src="/assets/images/authentication/logo.png" alt="logo"></a></div><!-- /.them-logo -->
 							</div> <!-- /.col -->
                             <div class="col-md-8 col-xs-12">
-                                <div class="middle-header-contant">
-                                    <ul class="clear-fix">
-                                        @if(optional($contactUs->current_translation)->title)
-                                            <li>
-                                                <i class="fa fa-location-arrow"></i>
-                                                <p>{{ optional($contactUs->current_translation)->title }}</p>
-                                            </li>
-                                        @endif
 
-                                        @if(optional($contactUs)->phone_one || optional($contactUs)->phone_two)
-                                            <li>
-                                                <i class="flaticon-smartphone"></i>
-                                                <p>@lang("messages.Want to talk with us")</p>
-                                                <span>
-                                                    @if(optional($contactUs)->phone_one)
-                                                        <a href="tel:{{ preg_replace('/\s+/', '', $contactUs->phone_one) }}">{{ $contactUs->phone_one }}</a>
-                                                    @endif
-                                                    @if(optional($contactUs)->phone_two)
-                                                        @if(optional($contactUs)->phone_one)<br>@endif
-                                                        <a href="tel:{{ preg_replace('/\s+/', '', $contactUs->phone_two) }}">{{ $contactUs->phone_two }}</a>
-                                                    @endif
-                                                </span>
-                                            </li>
-                                        @endif
-
-                                        @if(optional($contactUs)->email_one || optional($contactUs)->email_two)
-                                            <li>
-                                                <i class="flaticon-envelope"></i>
-                                                <p>@lang("messages.Send me Email")</p>
-                                                <span>
-                                                    @if(optional($contactUs)->email_one)
-                                                        <a href="mailto:{{ $contactUs->email_one }}">{{ $contactUs->email_one }}</a>
-                                                    @endif
-                                                    @if(optional($contactUs)->email_two)
-                                                        @if(optional($contactUs)->email_one)<br>@endif
-                                                        <a href="mailto:{{ $contactUs->email_two }}">{{ $contactUs->email_two }}</a>
-                                                    @endif
-                                                </span>
-                                            </li>
-                                        @endif
-                                    </ul> <!-- /.clear-fix -->
-                                </div> <!-- /.middle-header-contant -->
                             </div> <!-- /.col -->		</div> <!-- /.row -->
 					</div> <!-- /.container -->
-				</div> <!-- /.middle-header -->
+				</div> <!-- /.middle-header --> --}}
 
 				<!-- Theme Main Menu ____________________________ -->
 				<div class="theme-main-menu">
@@ -126,7 +86,12 @@
 							<div class="float-right">
 								<div class="search-button-content clear-fix">
 
-						   			<a href="/contact" class="a-comon main-menu-button">@lang("messages.Donate") <i class="flaticon-hand"></i></a>
+						   			<a href="/" class="a-comon main-menu-button">
+                                        								<div class="them-logo">
+                                                                            <img src="/assets/images/authentication/logo.png" alt="logo" style="height:80px"></div><!-- /.them-logo -->
+
+
+                                    </a>
 						   		</div> <!-- /.right-content -->
 							</div> <!-- /.float-right -->
 						</div> <!-- / menu-skew-div -->
