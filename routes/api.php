@@ -110,6 +110,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [ChangeLang::class]], fun
         // contact-us
         Route::apiResource('contact-us', ContactUsController::class);
 
+        // setting
+        Route::apiResource('setting', SettingController::class);
+
         // contact-message
         Route::apiResource('contact-message', ContactMessageController::class);
 

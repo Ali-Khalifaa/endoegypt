@@ -172,6 +172,12 @@
                             <span class="side-menu__label">{{$t('global.newsletter')}}</span>
                         </router-link>
                     </li>
+                    <li class="slide" v-show="permission.includes('setting read')">
+                        <router-link :to="{name:'setting'}" class="side-menu__item">
+                            <i class="bx bx-cog side-menu__icon"></i>
+                            <span class="side-menu__label">{{$t('global.setting')}}</span>
+                        </router-link>
+                    </li>
 
                     <li class="slide" v-show="permission.includes('database backup read')">
                         <router-link :to="{name:'backup'}" class="side-menu__item">

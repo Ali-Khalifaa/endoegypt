@@ -40,8 +40,6 @@ class PermissionSeeder extends Seeder
             ['name' => 'language edit',  'category' => 'Languages'],
             ['name' => 'language delete',  'category' => 'Languages'],
 
-          
-
             // ['name' => 'frequently asked question read'  ,  'category' => 'Frequently Asked Question'],
             // ['name' => 'frequently asked question create',  'category' => 'Frequently Asked Question'],
             // ['name' => 'frequently asked question edit'  ,  'category' => 'Frequently Asked Question'],
@@ -97,8 +95,8 @@ class PermissionSeeder extends Seeder
             ['name' => 'events delete',  'category' => 'Event'],
             ['name' => 'event registration read'  ,  'category' => 'Event'],
 
-            // ['name' => 'user read'  ,  'category' => 'User'],
-            // ['name' => 'user edit'  ,  'category' => 'User'],
+            ['name' => 'setting read'  ,  'category' => 'Settings'],
+            ['name' => 'setting edit'  ,  'category' => 'Settings'],
 
         ];
 

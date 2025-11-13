@@ -16,6 +16,7 @@ import frequentlyAskedQuestion from "./adminRoute/frequentlyAskedQuestion.js";
 import organizingCommittee from "./adminRoute/organizingCommittee.js";
 import news from "./adminRoute/news.js";
 import contactUs from "./adminRoute/contactUs.js";
+import setting from "./adminRoute/setting.js";
 import contactMessage from "./adminRoute/contactMessage.js";
 import eventRegistration from "./adminRoute/eventRegistration.js";
 import newsletter from "./adminRoute/newsletter.js";
@@ -66,6 +67,7 @@ const routes = [
             ...organizingCommittee,
             ...news,
             ...contactUs,
+            ...setting,
             ...contactMessage,
             ...newsletter,
             ...events,

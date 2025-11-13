@@ -1083,7 +1083,8 @@
         "events":"Events",
         "event_date":"Event Date",
         "email_content":"Email Content",
-        "eventRegistration":"Event Registration"
+        "eventRegistration":"Event Registration",
+        "setting": "Setting"
     },
     "role_and_permissions": {
         "Banners": "Banners",
@@ -1150,6 +1151,9 @@
         "mission edit": "Edit Mission",
         "about champion read": "View About Champion",
         "about champion edit": "Edit About Champion",
+        "Settings": "Settings",
+        "setting read": "View Settings",
+        "setting edit": "Edit Settings",
 
         "Organizing Committee": "Organizing Committee",
         "organizing committee read": "View Organizing Committee",
