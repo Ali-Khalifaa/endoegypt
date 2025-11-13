@@ -815,7 +815,8 @@ content: "\f105";
 .rtl .about-description *{
     color:#fff!important;
     line-height: 1cm;
-    font-size: 20px
+    font-size: 20px;
+    background-color: unset!important;
 }
 
 .rtl #theme-main-banner .camera_caption .container a {

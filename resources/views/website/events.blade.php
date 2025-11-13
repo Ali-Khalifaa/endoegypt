@@ -23,7 +23,7 @@
                                 </div> <!-- /.Causes-Img -->
                                 <div class="Causes-Text">
                                     <h3>{{ $event->current_translation->title }}</h3>
-                                    <p>{{ Str::limit($event->current_translation->description, 150) }}</p>
+                                    {{-- <p>{{ Str::limit($event->current_translation->description, 150) }}</p> --}}
                                     <div class="Causes-Details-Wrapper">
                                         <div class="Causes-Details-Item">
                                             <div class="Causes-Text" style="padding:0;border-bottom:none">

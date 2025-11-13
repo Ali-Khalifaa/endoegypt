@@ -4,13 +4,14 @@
 						<div class="clear-fix" >
 							<ul class="float-left top-header-left ">
                                 <li class="">
-                                    <a href="/change-language/{{app()->getLocale() == 'ar' ? 'en' : 'ar'}}" >
-                                        <img style="display: inline-block;width: 30px;border-radius: 50%;height: 30px;margin: 0 5px;" src="{{asset(app()->getLocale() != 'ar' ? 'assets/images/flags/eg.webp' : 'assets/images/flags/us_flag.jpg')}}"
+                                    <a href="javascript:void()" id="change-language" data-lang="{{ app()->getLocale() == 'ar' ? 'en' : 'ar' }}">
+                                        <img style="display: inline-block;width: 30px;border-radius: 50%;height: 30px;margin: 0 5px;"
+                                             src="{{ asset(app()->getLocale() != 'ar' ? 'assets/images/flags/eg.webp' : 'assets/images/flags/us_flag.jpg') }}"
                                              alt="Current Language Flag"
                                              class="flag-icon">
                                         <span>{{ app()->getLocale() != 'ar' ? "العربية" : 'English' }}</span>
-
                                     </a>
+
 
                                 </li>
                             	</ul> <!-- /.top-header-left -->

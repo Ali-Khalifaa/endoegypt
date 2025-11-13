@@ -1,15 +1,15 @@
 {
-  "_index-B6qwsKqB.js": {
-    "file": "assets/index-B6qwsKqB.js",
+  "_index-DfMvNUKY.js": {
+    "file": "assets/index-DfMvNUKY.js",
     "name": "index"
   },
   "node_modules/quill/quill.js": {
-    "file": "assets/quill-B0CSf7fa.js",
+    "file": "assets/quill-DXXb21qG.js",
     "name": "quill",
     "src": "node_modules/quill/quill.js",
     "isDynamicEntry": true,
     "imports": [
-      "_index-B6qwsKqB.js"
+      "_index-DfMvNUKY.js"
     ]
   },
   "resources/css/app.css": {
@@ -19,40 +19,40 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-C9CdRgTc.js",
+    "file": "assets/app-sqDDY9TO.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
-      "_index-B6qwsKqB.js"
+      "_index-DfMvNUKY.js"
     ],
     "dynamicImports": [
       "node_modules/quill/quill.js",
       "resources/js/views/admin/dashboard/index.vue"
     ],
     "css": [
-      "assets/app-nLJHkUJv.css"
+      "assets/app-DaQLjafQ.css"
     ]
   },
   "resources/js/single-components.js": {
-    "file": "assets/single-components-kG4Bzndc.js",
+    "file": "assets/single-components-BFw_FQyw.js",
     "name": "single-components",
     "src": "resources/js/single-components.js",
     "isEntry": true,
     "imports": [
-      "_index-B6qwsKqB.js"
+      "_index-DfMvNUKY.js"
     ],
     "css": [
-      "assets/single-components-BlFfDKiY.css"
+      "assets/single-components-BV_aDgjC.css"
     ]
   },
   "resources/js/views/admin/dashboard/index.vue": {
-    "file": "assets/index-CPWsrezx.js",
+    "file": "assets/index-Bl0Gzft7.js",
     "name": "index",
     "src": "resources/js/views/admin/dashboard/index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_index-B6qwsKqB.js",
+      "_index-DfMvNUKY.js",
       "resources/js/app.js"
     ],
     "css": [

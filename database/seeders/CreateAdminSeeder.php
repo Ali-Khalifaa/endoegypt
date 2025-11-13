@@ -16,6 +16,7 @@ class CreateAdminSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(PermissionSeeder::class);
         $user = Admin::firstOrCreate(['email' => 'admin@admin.com'],[
             'name' => 'admin',
             'phone' => '0123456789',

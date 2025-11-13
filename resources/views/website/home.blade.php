@@ -42,34 +42,24 @@
 
 
     <!-- Children Care List  _________________________________ -->
-    <section class="Children-Care-list-margin">
+    <section class="Children-Care-list-margin" style="margin-top:70px">
         <div class="container">
+              <div class="Theme-title text-center" style="margin-bottom:40px">
+                <h2>@lang('messages.Our Values')</h2>
+            </div> <!-- /.Theme-title -->
             <div class="Children-Care-list">
                 <div id="Children-Care-List-Slider" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="text-center list-item">
-                            <i class="flaticon-handshake"></i>
-                            <h6><a href="#">@lang('messages.Children’s Care')</a></h6>
-                        </div> <!-- /.list-item -->
-                    </div> <!-- /.item -->
-                    <div class="item">
-                        <div class="text-center list-item">
-                            <i class="flaticon-donation-1"></i>
-                            <h6><a href="#">@lang('messages.Donate')</a></h6>
-                        </div> <!-- /.list-item -->
-                    </div> <!-- /.item -->
-                    <div class="item">
-                        <div class="text-center list-item">
-                            <i class="flaticon-donation"></i>
-                            <h6><a href="#">@lang('messages.Volunteer')</a></h6>
-                        </div> <!-- /.list-item -->
-                    </div> <!-- /.item -->
-                    <div class="item">
-                        <div class="text-center list-item">
-                            <i class="flaticon-donation-2"></i>
-                            <h6><a href="#">@lang('messages.Protect Planet')</a></h6>
-                        </div> <!-- /.list-item -->
-                    </div> <!-- /.item -->
+                    @foreach ($features as $feature)
+                        <div class="item">
+                            <div class="text-center list-item">
+                                <img src="{{$feature->image}}" alt="feature" style="width: 76px;height: 76px;margin: 20px auto;">
+                                {{-- <i class="flaticon-handshake"></i> --}}
+                                <h6 style="margin-top:25px"><a href="#">{{ $feature->current_translation?->title }}</a></h6>
+                            </div> <!-- /.list-item -->
+                        </div> <!-- /.item -->
+                    @endforeach
+
+
                 </div> <!-- / #Children-Care-List-Slider -->
             </div> <!-- /.Children-Care-list -->
         </div> <!-- /.container -->
@@ -109,23 +99,64 @@
                 <h2>@lang('messages.Organizing Committees')</h2>
                 <h6>@lang('messages.Our Team')</h6>
             </div> <!-- /.Theme-title -->
-            <div class="row">
+            <div class="row" style="display: flex;flex-wrap:wrap">
 
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="Our-Team-Item">
-                        <div class="Team-Img"><img src="/images/experts/img-11.jpg" alt="image"></div><!-- /.Team-Img -->
-                        <div class="Team-Text">
-                            <h5>Mahfuz Riad</h5>
-                            <p>A trio of Business Doctors is celebrating a successful bid to sit on the framework of
-                                specialist advisors</p>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            </ul>
+                @foreach ($organizingCommittees as $member)
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="Our-Team-Item">
+                            <div class="Team-Img"><img src="{{ $member->image }}" style="height:360px;width:400px"
+                                    alt="{{ $member->current_translation?->title }}"></div>
+                            <!-- /.Team-Img -->
+                            <div class="Team-Text">
+                                <h5>
+                                    {{ $member->current_translation?->title }}
+                                </h5>
+                                <h6>
+                                    ({{ $member->job }})
+                                </h6>
+                                @php
+                                    $full = $member->current_translation?->description ?? '';
+                                    $plain = strip_tags($full);
+                                    $truncated = \Illuminate\Support\Str::words($plain, 15, '...');
+                                    $mid = $member->id ?? uniqid();
+                                @endphp
+
+                                <div>
+                                    <span id="preview-{{ $mid }}">
+                                        {{ $truncated }}
+                                        @if ($truncated !== $plain)
+                                            <a href="javascript:void(0)" id="toggle-{{ $mid }}"
+                                                onclick="toggleRead('{{ $mid }}')"> ... @lang('messages.Read more')</a>
+                                        @endif
+                                    </span>
+
+                                    <span id="full-{{ $mid }}" style="display:none;">
+                                        {!! $full !!}
+                                        <a href="javascript:void(0)" onclick="toggleRead('{{ $mid }}')">
+                                            @lang('messages.Read less')</a>
+                                    </span>
+                                </div>
+
+                                <script>
+                                    function toggleRead(id) {
+                                        var p = document.getElementById('preview-' + id);
+                                        var f = document.getElementById('full-' + id);
+                                        if (!p || !f) return;
+                                        if (f.style.display === 'none') {
+                                            f.style.display = 'inline';
+                                            p.style.display = 'none';
+                                        } else {
+                                            f.style.display = 'none';
+                                            p.style.display = 'inline';
+                                        }
+                                    }
+                                </script>
+
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
 
             </div> <!-- /.row -->
         </div> <!-- /.container -->
@@ -142,10 +173,11 @@
                         <div class="clear-fix">
                             <div class="history-item item-one">
                                 <div>
-                                    <i class="flaticon-donate"></i>
-                                    <p>@lang('messages.Fundrising')</p>
-                                    <h2><span class="timer" data-from="0" data-to="1425" data-speed="2000"
-                                            data-refresh-interval="5">0</span></h2>
+                                    {{-- <i class="flaticon-donate"></i> --}}
+                                    <p>{{ $counters[0]?->current_translation?->title }}</p>
+                                    <h2><span class="timer" data-from="0" data-to="{{ $counters[0]?->counter }}"
+                                            data-speed="2000" data-refresh-interval="5">{{ $counters[0]?->counter }}</span>
+                                    </h2>
                                 </div>
                             </div> <!-- /.history-item -->
                         </div> <!-- /.clear-fix -->
@@ -154,10 +186,12 @@
                         <div class="clear-fix">
                             <div class="history-item item-two">
                                 <div>
-                                    <i class="flaticon-group"></i>
+                                    {{-- <i class="flaticon-group"></i> --}}
                                     <p>@lang('messages.Volunteer')</p>
-                                    <h2><span class="timer" data-from="0" data-to="1200" data-speed="2000"
-                                            data-refresh-interval="5">0</span></h2>
+                                    <h2><span class="timer" data-from="0" data-to="{{ $counters[1]?->counter }}"
+                                            data-speed="2000"
+                                            data-refresh-interval="5">{{ $counters[1]?->current_translation?->title }}</span>
+                                    </h2>
                                 </div>
                             </div> <!-- /.history-item -->
                         </div> <!-- /.clear-fix -->
@@ -166,10 +200,12 @@
                         <div class="clear-fix">
                             <div class="history-item item-three">
                                 <div>
-                                    <i class="flaticon-donation-3"></i>
+                                    {{-- <i class="flaticon-donation-3"></i> --}}
                                     <p>@lang('messages.Donator')</p>
-                                    <h2><span class="timer" data-from="0" data-to="201" data-speed="2000"
-                                            data-refresh-interval="5">0</span></h2>
+                                    <h2><span class="timer" data-from="0" data-to="{{ $counters[2]?->counter }}"
+                                            data-speed="2000"
+                                            data-refresh-interval="5">{{ $counters[2]?->current_translation?->title }}</span>
+                                    </h2>
                                 </div>
                             </div> <!-- /.history-item -->
                         </div> <!-- /.clear-fix -->
@@ -178,10 +214,12 @@
                         <div class="clear-fix">
                             <div class="history-item item-four">
                                 <div>
-                                    <i class="flaticon-donation-1"></i>
+                                    {{-- <i class="flaticon-donation-1"></i> --}}
                                     <p>@lang('messages.Raised Funds')</p>
-                                    <h2><span class="timer" data-from="0" data-to="20" data-speed="2000"
-                                            data-refresh-interval="5">0</span>M</h2>
+                                    <h2><span class="timer" data-from="0" data-to="{{ $counters[3]?->counter }}"
+                                            data-speed="2000"
+                                            data-refresh-interval="5">{{ $counters[3]?->current_translation?->title }}</span>M
+                                    </h2>
                                 </div>
                             </div> <!-- /.history-item -->
                         </div> <!-- /.clear-fix -->
@@ -279,7 +317,7 @@
                     <div id="client-carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            @foreach ($organizingCommittees as $key => $member)
+                            @foreach ($testmonials as $key => $member)
                                 <li data-target="#client-carousel" data-slide-to="{{ $key }}"
                                     class="{{ $key == 0 ? 'active' : '' }}"></li>
                             @endforeach
@@ -287,11 +325,11 @@
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
-                            @foreach ($organizingCommittees as $key => $member)
+                            @foreach ($testmonials as $key => $member)
                                 <div class="item {{ $key == 0 ? 'active' : '' }}">
                                     <p>{{ $member->current_translation?->description }}</p>
-                                    <span>{{ $member->current_translation?->title }} ({{ $member->job }})</span>
-                                    <img src="{{ asset($member->image) }}" alt="committee member">
+                                    <span>{{ $member->current_translation?->title }} </span>
+                                    <img src="{{ asset($member->image) }}" alt="Testimonal">
                                 </div>
                             @endforeach
                         </div> <!-- /.carousel-inner -->
