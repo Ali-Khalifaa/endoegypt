@@ -26,26 +26,65 @@
                     <div class="footer-containt-item-text-and-logo">
                         <div class="footer-logo"><a href="/"><img src="/assets/images/authentication/logo.png"
                                     alt="logo"></a></div>
-                        <p>@lang("messages.To provide humanitarian and social support to individuals and families in need through sustainable development projects that promote self-reliance and contribute to building a more cohesive and just society.")</p>
+                        <p style="color:#fff">@lang("messages.To provide humanitarian and social support to individuals and families in need through sustainable development projects that promote self-reliance and contribute to building a more cohesive and just society.")</p>
                     </div> <!-- /.footer-containt-item-text-and-logo -->
                 </div> <!-- /.col -->
                 <div class="col-md-7 col-xs-12">
                     <div class="row">
-                        <div class="col-xs-6 footer-containt-width">
+                        <div class="col-xs-3 footer-containt-width">
                             <div class="footer-containt-item">
                                 <ul>
-                                     <li><a href="/">@lang("messages.HomePage")</a></li>
-                                    <li><a href="/events">@lang("messages.Events")</a></li>
-
+                                     <li><a style="color:#fff" href="/">@lang("messages.HomePage")</a></li>
+                                    <li><a style="color:#fff" href="/events">@lang("messages.Events")</a></li>
+                                    <li><a style="color:#fff" href="/news">@lang("messages.News")</a></li>
+                                    <li><a style="color:#fff" href="/contact">@lang("messages.Contact us")</a></li>
                                 </ul>
                             </div> <!-- /.footer-containt-item -->
                         </div> <!-- /.col -->
-                        <div class="col-xs-6 footer-containt-width">
+                        <div class="col-xs-9 footer-containt-width">
                             <div class="footer-containt-item">
-                                <ul>
-                                    <li><a href="/news">@lang("messages.News")</a></li>
-                                    <li><a href="/contact">@lang("messages.Contact us")</a></li>
-                                </ul>
+                                   <div class="middle-header-contant">
+                                    <ul class="clear-fix">
+                                        @if(optional($contactUs->current_translation)->title)
+                                            <li>
+
+                                                <p style="color:#fff"><i style="padding:0 5px" class="fa fa-location-arrow"></i> {{ optional($contactUs->current_translation)->title }}</p>
+                                            </li>
+                                        @endif
+
+                                        @if(optional($contactUs)->phone_one || optional($contactUs)->phone_two)
+                                            <li>
+
+                                                <p style="color:#fff"><i style="padding:0 5px" class="flaticon-smartphone"></i> @lang("messages.Want to talk with us")</p>
+                                                <span>
+                                                    @if(optional($contactUs)->phone_one)
+                                                        <a style="margin:0 15px"  href="tel:{{ preg_replace('/\s+/', '', $contactUs->phone_one) }}">{{ $contactUs->phone_one }}</a>
+                                                    @endif
+                                                    @if(optional($contactUs)->phone_two)
+                                                        @if(optional($contactUs)->phone_one)<br>@endif
+                                                        <a  style="margin:0 15px" href="tel:{{ preg_replace('/\s+/', '', $contactUs->phone_two) }}">{{ $contactUs->phone_two }}</a>
+                                                    @endif
+                                                </span>
+                                            </li>
+                                        @endif
+
+                                        @if(optional($contactUs)->email_one || optional($contactUs)->email_two)
+                                            <li>
+
+                                                <p style="color:#fff"><i style="padding:0 5px" class="flaticon-envelope"></i> @lang("messages.Send me Email")</p>
+                                                <span>
+                                                    @if(optional($contactUs)->email_one)
+                                                        <a  style="margin:0 15px" href="mailto:{{ $contactUs->email_one }}">{{ $contactUs->email_one }}</a>
+                                                    @endif
+                                                    @if(optional($contactUs)->email_two)
+                                                        @if(optional($contactUs)->email_one)<br>@endif
+                                                        <a  style="margin:0 15px" href="mailto:{{ $contactUs->email_two }}">{{ $contactUs->email_two }}</a>
+                                                    @endif
+                                                </span>
+                                            </li>
+                                        @endif
+                                    </ul> <!-- /.clear-fix -->
+                                </div> <!-- /.middle-header-contant -->
                             </div> <!-- /.footer-containt-item -->
                         </div> <!-- /.col -->
 

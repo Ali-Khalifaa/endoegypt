@@ -692,6 +692,9 @@ return [
     'Join Now'=>'Join Now',
     'Started On'=>'Started On',
     'Day'=>'Day',
+    'Our Values'=>'Our Values',
+    'Read less'=>'Read less',
+    'Read more'=>'Read more',
     'Seconds'=>'Seconds',
     'Minutes'=>'Minutes',
     'Hours'=>'Hours',
@@ -707,6 +710,9 @@ return [
     'Volunteer'=>'Volunteer',
     'Children’s Care'=>'Children’s Care',
     'Donate'=>'Donate',
+    'Organizing Committees'=>'Organizing Committees',
+    'Our Team'=>'Our Team',
+    'Next'=>'Next',
     'Next'=>'Next',
 
 ];

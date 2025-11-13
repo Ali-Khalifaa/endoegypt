@@ -137,7 +137,7 @@
 
             <div class="col-xl-12 d-grid mt-2 text-center">
                 <button type="button" @click.prevent="AddSubmit" class="btn btn-lg btn-primary hvr-float-shadow" v-if="!loading"
-                    style="background-color: #fd580b;">{{
+                    style="background-color: #fd580b;padding:15px">{{
                         $t('global.Submit') }}</button>
                 <button class="btn btn-primary btn-loader" style="cursor: not-allowed" disabled v-else>
                     <span class="me-2">{{ $t('auth.Loading') }}</span>

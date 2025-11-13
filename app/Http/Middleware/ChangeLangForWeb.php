@@ -18,7 +18,7 @@ class ChangeLangForWeb
     public function handle(Request $request, Closure $next)
     {
 
-        $lang = session()->has('lang') ? session()->get('lang') : 'ar';
+        $lang = $request->cookie('lang', 'en'); // default en
 
         app()->setLocale($lang);
         Carbon::setLocale($lang);

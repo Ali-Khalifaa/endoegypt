@@ -6,8 +6,20 @@
 
     <!-- Theme Main Banner ____________________________ -->
     <section>
-        <div id="theme-main-banner">
-            @foreach ($banners ?? [] as $banner)
+        <div id="theme-main-banner" style="height:800px">
+            <div data-src="{{ $bannerVideo->image ?? '' }}" style="height:800px;position: relative;">
+                <div class="camera_caption">
+                    <div class="container text-center">
+                        <video autoplay muted loop playsinline preload="auto"
+                            style="width:100%;height:800px;object-fit:cover;box-shadow:26px 12px 20px rgb(50 44 44 / 28%)">
+                            <source src="{{ $bannerVideo->image }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            {{-- @foreach ($banners ?? [] as $banner)
                 @php
                     $title = $banner->current_translation?->title ?? '';
                     $description = $banner->current_translation?->description ?? '';
@@ -21,45 +33,33 @@
                             @if ($description)
                                 <h6 class="wow fadeInUp animated" data-wow-delay="0.4s">{{ $description }}</h6>
                             @endif
-                            {{-- <a href="#" class="tran3s banner-button wow fadeInUp animated hvr-bounce-to-right"
-                               data-wow-delay="0.7s">Donation Now</a> --}}
-                        </div> <!-- /.container -->
-                    </div> <!-- /.camera_caption -->
+                        </div>
+                    </div>
                 </div>
-            @endforeach
+            @endforeach --}}
         </div> <!-- /#theme-main-banner -->
     </section>
 
 
     <!-- Children Care List  _________________________________ -->
-    <section class="Children-Care-list-margin">
+    <section class="Children-Care-list-margin" style="margin-top:70px">
         <div class="container">
+              <div class="Theme-title text-center" style="margin-bottom:40px">
+                <h2>@lang('messages.Our Values')</h2>
+            </div> <!-- /.Theme-title -->
             <div class="Children-Care-list">
                 <div id="Children-Care-List-Slider" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="text-center list-item">
-                            <i class="flaticon-handshake"></i>
-                            <h6><a href="#">@lang("messages.Children’s Care")</a></h6>
-                        </div> <!-- /.list-item -->
-                    </div> <!-- /.item -->
-                    <div class="item">
-                        <div class="text-center list-item">
-                            <i class="flaticon-donation-1"></i>
-                            <h6><a href="#">@lang("messages.Donate")</a></h6>
-                        </div> <!-- /.list-item -->
-                    </div> <!-- /.item -->
-                    <div class="item">
-                        <div class="text-center list-item">
-                            <i class="flaticon-donation"></i>
-                            <h6><a href="#">@lang("messages.Volunteer")</a></h6>
-                        </div> <!-- /.list-item -->
-                    </div> <!-- /.item -->
-                    <div class="item">
-                        <div class="text-center list-item">
-                            <i class="flaticon-donation-2"></i>
-                            <h6><a href="#">@lang("messages.Protect Planet")</a></h6>
-                        </div> <!-- /.list-item -->
-                    </div> <!-- /.item -->
+                    @foreach ($features as $feature)
+                        <div class="item">
+                            <div class="text-center list-item">
+                                <img src="{{$feature->image}}" alt="feature" style="width: 76px;height: 76px;margin: 20px auto;">
+                                {{-- <i class="flaticon-handshake"></i> --}}
+                                <h6 style="margin-top:25px"><a href="#">{{ $feature->current_translation?->title }}</a></h6>
+                            </div> <!-- /.list-item -->
+                        </div> <!-- /.item -->
+                    @endforeach
+
+
                 </div> <!-- / #Children-Care-List-Slider -->
             </div> <!-- /.Children-Care-list -->
         </div> <!-- /.container -->
@@ -70,55 +70,101 @@
         <div class="opact-div">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-xs-12">
-                        <div class="banner-bottom-section-text About-Us-Section" style="margin: 20px 0 ;">
-                            <div class="Watch-Case-video" style="color:#fff">
-                                <h3 style="color:#fff">@lang("messages.Watch Case video")</h3>
-                                <p style="color:#fff">@lang("messages.We take pride in being responsive, making a difference at a critical point in peoples’ lives. We have been doing this since 1944, working with veterans of every conflict, and we envisage continuing doing so for the ‘long haul’ – supporting all future generations of our soldiers and their dependants.")</p>
-                                <div class="Case-video">
-                                    <img src="images/about/img-3.jpg" alt="image">
-                                    {{-- /assets/images/authentication/logo.png --}}
-                                    <div class="video-play">
-                                        <a data-fancybox="iframe" href="{{$bannerVideo->image}}"><i
-                                                class="flaticon-play-button"></i></a>
-                                    </div> <!-- /.video-play -->
-                                </div> <!-- /.Case-video -->
-                            </div>
-                        </div> <!-- /.banner-bottom-section-text -->
-                    </div> <!-- /.col -->
+                    <div class="we-are-innovators">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="innovators-text">
+                                    <h3 style="color:#fff">{{ $aboutUs->current_translation?->title }}</h3>
+                                    <div style="color:#fff!important" class="about-description">
+                                        {!! $aboutUs->current_translation?->description !!}
+                                    </div>
+                                </div> <!-- /.innovators-text -->
+                            </div> <!-- /.col -->
+                            <div class="col-md-6 col-xs-12">
+                                <div class="innovators-img" style="padding:0 20px"><img src="{{ $aboutUs->image }}"
+                                        style="width: 100%;height:510px;border-radius: 20px;" alt="image"></div>
+                                <!-- /.innovators-img -->
+                            </div> <!-- /.col -->
+                        </div> <!-- /.row -->
+                    </div> <!-- /.we-are-innovators -->
 
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /.opact-div -->
     </section> <!-- /.banner-bottom-section -->
 
-    <section class="About-Us-Section" style="margin: 120px 0 0;">
+    <section class="Team-Pages">
         <div class="container">
-            <div class="we-are-innovators">
-                <div class="row">
-                    <div class="col-md-7 col-xs-12">
-                        <div class="innovators-text">
-                            <h3>{{ $aboutUs->current_translation?->title }}</h3>
-                            <div>
-                                {!! $aboutUs->current_translation?->description !!}
+            <div class="Theme-title text-center">
+                <h2>@lang('messages.Organizing Committees')</h2>
+                <h6>@lang('messages.Our Team')</h6>
+            </div> <!-- /.Theme-title -->
+            <div class="row" style="display: flex;flex-wrap:wrap">
+
+                @foreach ($organizingCommittees as $member)
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="Our-Team-Item">
+                            <div class="Team-Img"><img src="{{ $member->image }}" style="height:360px;width:400px"
+                                    alt="{{ $member->current_translation?->title }}"></div>
+                            <!-- /.Team-Img -->
+                            <div class="Team-Text">
+                                <h5>
+                                    {{ $member->current_translation?->title }}
+                                </h5>
+                                <h6>
+                                    ({{ $member->job }})
+                                </h6>
+                                @php
+                                    $full = $member->current_translation?->description ?? '';
+                                    $plain = strip_tags($full);
+                                    $truncated = \Illuminate\Support\Str::words($plain, 15, '...');
+                                    $mid = $member->id ?? uniqid();
+                                @endphp
+
+                                <div>
+                                    <span id="preview-{{ $mid }}">
+                                        {{ $truncated }}
+                                        @if ($truncated !== $plain)
+                                            <a href="javascript:void(0)" id="toggle-{{ $mid }}"
+                                                onclick="toggleRead('{{ $mid }}')"> ... @lang('messages.Read more')</a>
+                                        @endif
+                                    </span>
+
+                                    <span id="full-{{ $mid }}" style="display:none;">
+                                        {!! $full !!}
+                                        <a href="javascript:void(0)" onclick="toggleRead('{{ $mid }}')">
+                                            @lang('messages.Read less')</a>
+                                    </span>
+                                </div>
+
+                                <script>
+                                    function toggleRead(id) {
+                                        var p = document.getElementById('preview-' + id);
+                                        var f = document.getElementById('full-' + id);
+                                        if (!p || !f) return;
+                                        if (f.style.display === 'none') {
+                                            f.style.display = 'inline';
+                                            p.style.display = 'none';
+                                        } else {
+                                            f.style.display = 'none';
+                                            p.style.display = 'inline';
+                                        }
+                                    }
+                                </script>
+
                             </div>
-                        </div> <!-- /.innovators-text -->
-                    </div> <!-- /.col -->
-                    <div class="col-md-5 col-xs-12">
-                        <div class="innovators-img"><img src="{{ $aboutUs->image }}" style="width: 420px;height:510px"
-                                alt="image"></div>
-                        <!-- /.innovators-img -->
-                    </div> <!-- /.col -->
-                </div> <!-- /.row -->
-            </div> <!-- /.we-are-innovators -->
+                        </div>
+                    </div>
+                @endforeach
 
+
+            </div> <!-- /.row -->
         </div> <!-- /.container -->
-    </section> <!-- /.About-Us-Section -->
-
+    </section>
 
     <!-- Company History _________________________________ -->
     <section class="company-history-section">
-        <div class="company-history-shape-img-top"><img src="images/shape/shape-1.png" alt="shape-img"></div>
+        <div class="company-history-shape-img-top"><img src="/images/shape/shape-1.png" alt="shape-img"></div>
         <!-- /.company-history-shape-img-top -->
         <div class="company-history-containt-opact">
             <div class="container">
@@ -127,10 +173,11 @@
                         <div class="clear-fix">
                             <div class="history-item item-one">
                                 <div>
-                                    <i class="flaticon-donate"></i>
-                                    <p>@lang("messages.Fundrising")</p>
-                                    <h2><span class="timer" data-from="0" data-to="1425" data-speed="2000"
-                                            data-refresh-interval="5">0</span></h2>
+                                    {{-- <i class="flaticon-donate"></i> --}}
+                                    <p>{{ $counters[0]?->current_translation?->title }}</p>
+                                    <h2><span class="timer" data-from="0" data-to="{{ $counters[0]?->counter }}"
+                                            data-speed="2000" data-refresh-interval="5">{{ $counters[0]?->counter }}</span>
+                                    </h2>
                                 </div>
                             </div> <!-- /.history-item -->
                         </div> <!-- /.clear-fix -->
@@ -139,10 +186,12 @@
                         <div class="clear-fix">
                             <div class="history-item item-two">
                                 <div>
-                                    <i class="flaticon-group"></i>
-                                    <p>@lang("messages.Volunteer")</p>
-                                    <h2><span class="timer" data-from="0" data-to="1200" data-speed="2000"
-                                            data-refresh-interval="5">0</span></h2>
+                                    {{-- <i class="flaticon-group"></i> --}}
+                                    <p>@lang('messages.Volunteer')</p>
+                                    <h2><span class="timer" data-from="0" data-to="{{ $counters[1]?->counter }}"
+                                            data-speed="2000"
+                                            data-refresh-interval="5">{{ $counters[1]?->current_translation?->title }}</span>
+                                    </h2>
                                 </div>
                             </div> <!-- /.history-item -->
                         </div> <!-- /.clear-fix -->
@@ -151,10 +200,12 @@
                         <div class="clear-fix">
                             <div class="history-item item-three">
                                 <div>
-                                    <i class="flaticon-donation-3"></i>
-                                    <p>@lang("messages.Donator")</p>
-                                    <h2><span class="timer" data-from="0" data-to="201" data-speed="2000"
-                                            data-refresh-interval="5">0</span></h2>
+                                    {{-- <i class="flaticon-donation-3"></i> --}}
+                                    <p>@lang('messages.Donator')</p>
+                                    <h2><span class="timer" data-from="0" data-to="{{ $counters[2]?->counter }}"
+                                            data-speed="2000"
+                                            data-refresh-interval="5">{{ $counters[2]?->current_translation?->title }}</span>
+                                    </h2>
                                 </div>
                             </div> <!-- /.history-item -->
                         </div> <!-- /.clear-fix -->
@@ -163,10 +214,12 @@
                         <div class="clear-fix">
                             <div class="history-item item-four">
                                 <div>
-                                    <i class="flaticon-donation-1"></i>
-                                    <p>@lang("messages.Raised Funds")</p>
-                                    <h2><span class="timer" data-from="0" data-to="20" data-speed="2000"
-                                            data-refresh-interval="5">0</span>M</h2>
+                                    {{-- <i class="flaticon-donation-1"></i> --}}
+                                    <p>@lang('messages.Raised Funds')</p>
+                                    <h2><span class="timer" data-from="0" data-to="{{ $counters[3]?->counter }}"
+                                            data-speed="2000"
+                                            data-refresh-interval="5">{{ $counters[3]?->current_translation?->title }}</span>M
+                                    </h2>
                                 </div>
                             </div> <!-- /.history-item -->
                         </div> <!-- /.clear-fix -->
@@ -209,9 +262,41 @@
                         </div> <!-- /.day -->
                         <div class="events-text">
                             <h4>{{ $title }}</h4>
-                            <p><i>{{ $created_display }}</i> {{ $description ?: $details }}</p>
+                            {{-- <p><i>{{ $created_display }}</i> </p> --}}
+                            <div class="Causes-Details-Wrapper">
+                                <div class="Causes-Details-Item">
+                                    <div class="Causes-Text">
+                                        <ul class="count-down" id="count-down" data-date="{{ $event->event_date }}">
+                                            <li>
+                                                <span id="days">0</span>
+                                                <p>@lang('messages.Day')</p>
+                                            </li>
+                                            <li>
+                                                <span id="hours">00</span>
+                                                <p>@lang('messages.Hours')</p>
+                                            </li>
+                                            <li>
+                                                <span id="minutes">00</span>
+                                                <p>@lang('messages.Minutes')</p>
+                                            </li>
+                                            <li>
+                                                <span id="seconds">00</span>
+                                                <p>@lang('messages.Seconds')</p>
+                                            </li>
+
+
+                                        </ul>
+                                        {{-- <ul class="Wacker-Drive">
+                                                <li><i class="fa fa-clock-o"
+                                                        aria-hidden="true"></i>{{ $event->created_at->format('Y-m-d H:i') }}
+                                                </li>
+                                            </ul> --}}
+
+                                    </div>
+                                </div>
+                            </div>
                         </div> <!-- /.events-text -->
-                        <a href="/events-details/{{ $event->id }}-{{ $event->slug ?? '' }}"><i
+                        <a href="/event-details/{{ $event->id }}-{{ $event->slug ?? '' }}"><i
                                 class="fa fa-arrow-right" aria-hidden="true"></i></a>
                     </li> <!-- /.clear-fix -->
                 @endforeach
@@ -232,7 +317,7 @@
                     <div id="client-carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            @foreach ($organizingCommittees as $key => $member)
+                            @foreach ($testmonials as $key => $member)
                                 <li data-target="#client-carousel" data-slide-to="{{ $key }}"
                                     class="{{ $key == 0 ? 'active' : '' }}"></li>
                             @endforeach
@@ -240,11 +325,11 @@
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
-                            @foreach ($organizingCommittees as $key => $member)
+                            @foreach ($testmonials as $key => $member)
                                 <div class="item {{ $key == 0 ? 'active' : '' }}">
                                     <p>{{ $member->current_translation?->description }}</p>
-                                    <span>{{ $member->current_translation?->title }} ({{ $member->job }})</span>
-                                    <img src="{{ asset($member->image) }}" alt="committee member">
+                                    <span>{{ $member->current_translation?->title }} </span>
+                                    <img src="{{ asset($member->image) }}" alt="Testimonal">
                                 </div>
                             @endforeach
                         </div> <!-- /.carousel-inner -->

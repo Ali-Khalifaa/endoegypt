@@ -5,7 +5,9 @@
 use App\Http\Controllers\Web\HomePageController;
 use App\Http\Controllers\Web\RegisterController;
 use App\Http\Middleware\ChangeLangForWeb;
+
 use Illuminate\Support\Facades\Route;
+
 
 // Dashboard admin
 Route::group(['middleware' => [ChangeLangForWeb::class]], function () {
@@ -21,6 +23,7 @@ Route::group(['middleware' => [ChangeLangForWeb::class]], function () {
         })->where('any', '^(?!api\/).*$');
 
     });
+    Route::get('/change-language/{lang}', [HomePageController::class, 'changeLanguage']);
     Route::get('/login', [RegisterController::class, 'login'])->middleware('guest:user');
     Route::get('/register', [RegisterController::class, 'index'])->middleware('guest:user');
     Route::get('/complete-register', [RegisterController::class, 'completeRegisterIndex'])->middleware('auth:user');
@@ -28,7 +31,6 @@ Route::group(['middleware' => [ChangeLangForWeb::class]], function () {
 
     Route::get('/', [HomePageController::class, 'index'])->name('web.home');
     Route::post('/newsletter', [HomePageController::class, 'newsletter'])->name('web.newsletter');
-    Route::get('/change-language/{lang}', [HomePageController::class, 'changeLanguage']);
     Route::get('/events', [HomePageController::class, 'events']);
     Route::get('/event-details/{event}-{slug?}', [HomePageController::class, 'eventDetails']);
     Route::get('/news', [HomePageController::class, 'news']);

@@ -7,9 +7,11 @@ use App\Http\Controllers\Dashboard\BackupController;
 use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\ContactMessageController;
 use App\Http\Controllers\Dashboard\ContactUsController;
+use App\Http\Controllers\Dashboard\CounterController;
 use App\Http\Controllers\Dashboard\DashboardStatisticsController;
 use App\Http\Controllers\Dashboard\EventController;
 use App\Http\Controllers\Dashboard\EventRegistrationController;
+use App\Http\Controllers\Dashboard\FeatureController;
 use App\Http\Controllers\Dashboard\FrequentlyAskedQuestionController;
 use App\Http\Controllers\Dashboard\HistoryController;
 use App\Http\Controllers\Dashboard\JoinUsController;
@@ -24,6 +26,7 @@ use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\SendNotificationController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\OrganizingCommitteeController;
+use App\Http\Controllers\Dashboard\TestimonialController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\VisionController;
 use App\Http\Controllers\Web\HomePageController;
@@ -94,6 +97,15 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [ChangeLang::class]], fun
 
         // JoinUs
         Route::apiResource('join-us', JoinUsController::class);
+
+        // testimonial
+        Route::apiResource('testimonial', TestimonialController::class);
+
+        // feature
+        Route::apiResource('feature', FeatureController::class);
+
+        // counter
+        Route::apiResource('counter', CounterController::class);
 
         // OrganizingCommittee
         Route::apiResource('organizing-committee', OrganizingCommitteeController::class);
