@@ -23,6 +23,12 @@
 
                         <div class="prism-toggle">
 
+                            <button type="button" @click="exportExcel" class="btn btn-sm btn-success" title="Export CSV" aria-label="Export CSV">
+                                <i v-if="loading" class="ri-loader-3-line ri-spin me-1 align-middle" aria-hidden="true"></i>
+                                <i v-else class="ri-download-2-line me-1 fw-semibold align-middle" aria-hidden="true"></i>
+                                Export CSV
+                            </button>
+
                         </div>
                     </div>
                     <div class="card-body">
@@ -76,6 +82,7 @@
 <script>
 import {onBeforeMount,inject,toRefs} from "vue";
 import crud from "../../../composable/crud_structure";
+import adminApi from "../../../api/adminAxios";
 
 export default {
     name: "index",
@@ -100,8 +107,27 @@ export default {
             getData();
         });
 
+        let exportExcel = () => {
+            try {
+                const response = adminApi.get(`/dashboard/export-event-registrations-search`, {
+                params: { search: JSON.stringify(search.value) },
+                responseType: 'blob' // مهم جدًا علشان الملف ينزل
+                });
+                // إنشاء رابط مؤقت للتحميل
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'event_registrations.xlsx'); // اسم الملف
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } catch (error) {
+                console.error('خطأ في تحميل الملف:', error);
+            }
+        }
 
-        return {getData,loading,search,permission,deleteData,showEditMode,showModelCreate,data,dataPaginate,type,dataRow,modalShow,pagePaginate};
+
+        return {getData,loading,search,permission,deleteData,showEditMode,exportExcel,showModelCreate,data,dataPaginate,type,dataRow,modalShow,pagePaginate};
 
     }
 }

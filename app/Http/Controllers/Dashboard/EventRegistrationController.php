@@ -8,6 +8,8 @@ use App\Models\EventRegistration;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use App\Exports\EventRegistrationExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EventRegistrationController extends Controller implements HasMiddleware
 {
@@ -24,6 +26,12 @@ class EventRegistrationController extends Controller implements HasMiddleware
         $ContactMessage = EventRegistration::searchAndFilter()->latest()->paginate(10);
 
         return responseJson(EventRegistrationResource::collection($ContactMessage->items()), 'ContactMessage', 200, getPaginates($ContactMessage));
+    }
+
+    public function exportSearch(Request $request)
+    {
+        $results = EventRegistration::searchAndFilter()->get();
+        return Excel::download(new EventRegistrationExport($results), 'event_registrations.xlsx');
     }
 
 }

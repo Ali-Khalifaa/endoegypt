@@ -118,6 +118,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [ChangeLang::class]], fun
 
         // event registration
         Route::apiResource('event-registration', EventRegistrationController::class);
+        Route::get('/export-event-registrations-search', [EventRegistrationController::class, 'exportSearch']);
 
         // contact-us
         Route::apiResource('contact-us', ContactUsController::class);
