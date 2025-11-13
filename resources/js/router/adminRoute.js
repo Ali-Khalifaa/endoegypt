@@ -26,6 +26,9 @@ import aboutChampion from "./adminRoute/aboutChampion.js";
 import history from "./adminRoute/history.js";
 import vision from "./adminRoute/vision.js";
 import mission from "./adminRoute/mission.js";
+import testimonial from "./adminRoute/testimonial.js";
+import feature from "./adminRoute/feature.js";
+import counter from "./adminRoute/counter.js";
 
 
 import role from "./adminRoute/role.js";
@@ -77,6 +80,9 @@ const routes = [
             ...history,
             ...vision,
             ...mission,
+            ...testimonial,
+            ...feature,
+            ...counter,
         ]
     },
     {

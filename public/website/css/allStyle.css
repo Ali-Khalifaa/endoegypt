@@ -790,7 +790,16 @@ img {
 .testimonial-containt .carousel-indicators {
     display: none !important
 }
+.about-description *{
+    color:#fff!important;
+    background-color: unset!important;
+    line-height: 1cm;
+    font-size: 20px;
+}
+.them-main-footer-containt-item *{
+color:#fd580b;
 
+}
 #theme-main-banner .camera_caption>div {
     background: 0 0;
     position: absolute;

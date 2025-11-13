@@ -75,6 +75,27 @@
                         </router-link>
                     </li>
 
+                    <li class="slide" v-show="permission.includes('testimonial read')">
+                        <router-link :to="{name:'testimonial'}" class="side-menu__item">
+                            <i class="bx bxs-quote-left side-menu__icon"></i>
+                            <span class="side-menu__label">{{$t('global.testimonial')}}</span>
+                        </router-link>
+                    </li>
+
+                    <li class="slide" v-show="permission.includes('feature read')">
+                        <router-link :to="{name:'feature'}" class="side-menu__item">
+                            <i class="bx bx-star side-menu__icon"></i>
+                            <span class="side-menu__label">{{$t('global.feature')}}</span>
+                        </router-link>
+                    </li>
+
+                    <li class="slide" v-show="permission.includes('counter read')">
+                        <router-link :to="{name:'counter'}" class="side-menu__item">
+                            <i class="bx bx-calculator side-menu__icon"></i>
+                            <span class="side-menu__label">{{$t('global.counter')}}</span>
+                        </router-link>
+                    </li>
+
                     <li class="slide" v-show="permission.includes('events read')">
                         <router-link :to="{name:'events'}" class="side-menu__item">
                             <i class="bx bx-calendar side-menu__icon"></i>

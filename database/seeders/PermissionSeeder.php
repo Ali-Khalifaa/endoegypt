@@ -40,6 +40,8 @@ class PermissionSeeder extends Seeder
             ['name' => 'language edit',  'category' => 'Languages'],
             ['name' => 'language delete',  'category' => 'Languages'],
 
+
+
             // ['name' => 'frequently asked question read'  ,  'category' => 'Frequently Asked Question'],
             // ['name' => 'frequently asked question create',  'category' => 'Frequently Asked Question'],
             // ['name' => 'frequently asked question edit'  ,  'category' => 'Frequently Asked Question'],
@@ -97,6 +99,24 @@ class PermissionSeeder extends Seeder
 
             ['name' => 'setting read'  ,  'category' => 'Settings'],
             ['name' => 'setting edit'  ,  'category' => 'Settings'],
+            
+            ['name' => 'testimonial read'  ,  'category' => 'Testimonials'],
+            ['name' => 'testimonial create',  'category' => 'Testimonials'],
+            ['name' => 'testimonial edit'  ,  'category' => 'Testimonials'],
+            ['name' => 'testimonial delete',  'category' => 'Testimonials'],
+
+            ['name' => 'feature read'  ,  'category' => 'Features'],
+            ['name' => 'feature create',  'category' => 'Features'],
+            ['name' => 'feature edit'  ,  'category' => 'Features'],
+            ['name' => 'feature delete',  'category' => 'Features'],
+
+            ['name' => 'counter read'  ,  'category' => 'Counters'],
+            ['name' => 'counter create',  'category' => 'Counters'],
+            ['name' => 'counter edit'  ,  'category' => 'Counters'],
+            ['name' => 'counter delete',  'category' => 'Counters'],
+
+            // ['name' => 'user read'  ,  'category' => 'User'],
+            // ['name' => 'user edit'  ,  'category' => 'User'],
 
         ];
 

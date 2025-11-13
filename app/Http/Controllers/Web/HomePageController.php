@@ -10,18 +10,21 @@ use App\Models\AboutUs;
 use App\Models\Banner;
 use App\Models\ContactMessage;
 use App\Models\ContactUs;
+use App\Models\Counter;
 use App\Models\Event;
 use App\Models\EventRegistration;
+use App\Models\Feature;
 use App\Models\History;
 use App\Models\JoinUs;
 use App\Models\Mission;
 use App\Models\News;
 use App\Models\Newsletter;
 use App\Models\OrganizingCommittee;
-
+use App\Models\Testimonial;
 use App\Models\Vision;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Mail;
 
 class HomePageController extends Controller
@@ -34,6 +37,9 @@ class HomePageController extends Controller
         $latestNews = News::latest()->take(3)->get();
         $latestEvents = Event::latest()->take(3)->get();
         $organizingCommittees = OrganizingCommittee::latest()->get();
+        $testmonials = Testimonial::latest()->get();
+        $counters = Counter::latest()->get();
+        $features = Feature::latest()->get();
         $aboutUs = AboutUs::first();
 
         // $testmonials = Testimonial::latest()->take(9)->get();
@@ -46,7 +52,7 @@ class HomePageController extends Controller
     //         "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $latestEvents->created_at)->format('Y-m-d  (H:i)'),
 
         // $brands = Brand::latest()->get();
-        return view('website.home', compact('banners', 'latestNews','latestEvents', 'organizingCommittees','aboutUs','bannerVideo'));
+        return view('website.home', compact('banners','features', 'latestNews','latestEvents', 'organizingCommittees','aboutUs','bannerVideo','testmonials','counters'));
     }
     public function aboutUs(Request $request)
     {
@@ -131,11 +137,13 @@ class HomePageController extends Controller
 
     public function changeLanguage($lang)
     {
-        if (in_array($lang, ['ar', 'en'])) {
+            if (in_array($lang, ['ar', 'en'])) {
             app()->setLocale($lang);
             Carbon::setLocale($lang);
-            session()->put('lang', $lang);
+            // session()->put('lang', $lang);
+            return response(null,200)->cookie('lang', $lang, 60 * 24 * 365);;
+
         }
-        return redirect()->back();
+        return response(null,200);
     }
 }

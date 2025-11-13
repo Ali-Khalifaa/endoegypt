@@ -23,13 +23,39 @@
                                 </div> <!-- /.Causes-Img -->
                                 <div class="Causes-Text">
                                     <h3>{{ $event->current_translation->title }}</h3>
-                                    <p>{{ Str::limit($event->current_translation->description, 150) }}</p>
-                                    <ul>
-                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i>
-                                        @lang('messages.Started On'): {{ $event->event_date }}</li>
-                                        {{-- <li><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            {{ $event->location }}</li> --}}
-                                    </ul>
+                                    {{-- <p>{{ Str::limit($event->current_translation->description, 150) }}</p> --}}
+                                    <div class="Causes-Details-Wrapper">
+                                        <div class="Causes-Details-Item">
+                                            <div class="Causes-Text" style="padding:0;border-bottom:none">
+                                                <ul class="count-down" id="count-down" data-date="{{ $event->event_date }}">
+                                                    <li>
+                                                        <span id="days">0</span>
+                                                        <p>@lang('messages.Day')</p>
+                                                    </li>
+                                                    <li>
+                                                        <span id="hours">00</span>
+                                                        <p>@lang('messages.Hours')</p>
+                                                    </li>
+                                                    <li>
+                                                        <span id="minutes">00</span>
+                                                        <p>@lang('messages.Minutes')</p>
+                                                    </li>
+                                                    <li>
+                                                        <span id="seconds">00</span>
+                                                        <p>@lang('messages.Seconds')</p>
+                                                    </li>
+
+
+                                                </ul>
+                                                {{-- <ul class="Wacker-Drive">
+                                                <li><i class="fa fa-clock-o"
+                                                        aria-hidden="true"></i>{{ $event->created_at->format('Y-m-d H:i') }}
+                                                </li>
+                                            </ul> --}}
+
+                                            </div>
+                                        </div>
+                                    </div>
                                     <a href="/event-details/{{ $event->id }}-{{ $event->slug }}">@lang('messages.Join Now')
                                         !</a>
                                 </div> <!-- /.Causes-Text -->
@@ -50,7 +76,8 @@
                                         <li>
                                             <img src="{{ $event->image }}" alt="{{ $event->current_translation->title }}">
                                             <div class="text">
-                                                <h6><a href="/event-details/{{ $event->id }}-{{ $event->slug }}">{{ $event->current_translation->title }}</a>
+                                                <h6><a
+                                                        href="/event-details/{{ $event->id }}-{{ $event->slug }}">{{ $event->current_translation->title }}</a>
                                                 </h6>
                                                 <span>{{ $event->created_at->format('F d, Y') }}</span>
                                             </div>
